@@ -10,12 +10,6 @@ public class ContaCorrente extends Conta{
 		public int getTipo() {
 			return this.tipo;
 		}
-
-		@Override
-		public void saque(double valor) {
-			this.saldo = this.saldo - valor;
-			
-		}
 		
 		
 }

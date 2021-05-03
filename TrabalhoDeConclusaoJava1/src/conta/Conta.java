@@ -1,18 +1,25 @@
 package conta;
 
-public class Conta {
+public abstract class Conta {
 		
-		private String cpfTitular;
-		private double saldo;
-		private int agencia;
+		protected String cpfTitular;
+		protected double saldo;
+		protected int agencia;
 		private static int numeroDeContas;
 		
+		public Conta() {
+			numeroDeContas++;
+		}
+		
+		public static int getNumeroDeContas(){
+			return numeroDeContas;
+		}
 		public void setCPFTitular(String cpfTitular){
 			this.cpfTitular =cpfTitular;
 		}
 		
 		public String getCPFTitular() {
-			return cpfTitular;
+			return this.cpfTitular;
 		}
 		
 		public void deposita(double valor) {
@@ -20,7 +27,7 @@ public class Conta {
 		}
 		
 		public double getSaldo() {
-			return saldo;
+			return this.saldo;
 		}
 		
 		public void setAgencia(int agencia) {
@@ -28,14 +35,12 @@ public class Conta {
 		}
 		
 		public int getAgencia() {
-			return agencia;
+			return this.agencia;
 		}
 		
-		public void saque(double valor) {
-			this.saldo = this.saldo - valor;
-		}
+		public abstract void saque(double valor);
 		
-		public void tranfere(Conta destino, double valor) {
+		public void transfere(Conta destino, double valor) {
 			if(valor<=this.saldo) {
 				this.saque(valor);
 				destino.deposita(valor);

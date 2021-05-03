@@ -2,6 +2,7 @@ package principal;
 
 import conta.*;
 import leitura.Leitura;
+import menu.Menu;
 
 public class SistemaInterno {
 	
@@ -9,6 +10,7 @@ public class SistemaInterno {
 	
 	public static void main(String[] args) {
 		Leitura ler = new Leitura();
+		Menu menu = new Menu();
 		String senha, cpf;
 		int opcao;
 		boolean continuar = true;
@@ -22,7 +24,7 @@ public class SistemaInterno {
 		senha= ler.lerString();
 		
 		while(continuar) {
-			switch(contaOrigem.menuCliente()) {
+			switch(menu.menuCliente()) {
 			case 1: contaOrigem.processoSaque();
 					break;
 			case 2: contaOrigem.processoDeposito();
@@ -43,13 +45,8 @@ public class SistemaInterno {
 			if(opcao == 2) {
 				continuar = false; 
 			}
-		}
-		
-		
-		
-	}
-	
-	
+		}	
+	}	
 }
 
 

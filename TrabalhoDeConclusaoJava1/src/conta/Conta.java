@@ -57,13 +57,20 @@ public abstract class Conta {
 		}
 		
 		public boolean saque(double valor) {
-			if(saldo>=valor && valor > 0) {
-			this.saldo = this.saldo - valor;
-			return true;
-			}
-			else {	
-				return false;
-			}
+			
+				if(saldo>=valor && valor > 0) {
+					this.saldo = this.saldo - valor;
+					return true;
+				}
+				else if(valor <= 0){	
+					System.out.println("Erro. Valor so saque igual a 0 ou negativo");
+					return false;
+				}
+				else {
+					System.out.println("Saldo Insuficiente");
+					return false;
+				}
+			
 		}
 		
 		public boolean transfere(Conta destino, double valor) {
@@ -72,7 +79,11 @@ public abstract class Conta {
 				destino.deposita(valor);
 			return true;
 			}
-			else {
+			else if(valor <= 0) {
+				System.out.println("Erro. Transferência com valor 0 ou negativo");
+			return false;
+			}
+			else{
 				System.out.println("Saldo insuficiente para realizar a transferência");
 			return false;
 			}
@@ -98,12 +109,19 @@ public abstract class Conta {
 			
 			System.out.println("Insira o valor do saque:");
 			valorSaque = ler.lerDouble();
-			while(!this.saque(valorSaque)){
-				System.out.println("Valor Invaliso. Insira novo valor");
-				valorSaque = ler.lerDouble();
-			}
 			
+			if(this.saldo == 0) {
+				System.out.println("Erro. Saldo igual a 0, impossivel realizar saque");
+				
+				}
+			else {
+				while(!this.saque(valorSaque)){
+					System.out.println("Erro ao fazer o saque. Insira novo valor");
+					valorSaque = ler.lerDouble();
+			}
 		}
+			
+}
 		
 		public void processoDeposito() {
 			double valorDeposito;
@@ -111,7 +129,7 @@ public abstract class Conta {
 			System.out.println("Insira o valor do saque:");
 			valorDeposito = ler.lerDouble();
 			while(!this.saque(valorDeposito)) {
-				System.out.println("Valor invalido. Insira novo valor");
+				System.out.println("Erro ao realizar depósito. Insira novo valor");
 				valorDeposito = ler.lerDouble();
 			}
 		}

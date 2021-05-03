@@ -121,7 +121,7 @@ public abstract class Conta {
 			}
 		}
 			
-}
+		}
 		
 		public void processoDeposito() {
 			double valorDeposito;
@@ -134,11 +134,13 @@ public abstract class Conta {
 			}
 		}
 		
-		public void processoTransferencia(Conta contaDestino) {
+		public void processoTransferencia() {
 			int numContaDestino;
 			double valorTransferencia;
 			System.out.println("Insira o número da conta de destino: ");
 			numContaDestino = ler.lerInteiro();
+			
+			Conta contaDestino = new ContaPoupanca();
 			
 			System.out.println("Insira o valor a ser transferido: ");
 			valorTransferencia = ler.lerDouble();

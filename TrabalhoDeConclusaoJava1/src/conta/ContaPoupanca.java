@@ -10,4 +10,12 @@ public class ContaPoupanca extends Conta{
 		public int getTipo(){
 			return this.tipo;
 		}
+
+		@Override
+		public String toString() {
+			return "ContaPoupanca [tipo=" + tipo + ", cpfTitular=" + cpfTitular + ", saldo=" + saldo + ", agencia="
+					+ agencia + ", numConta=" + numConta + ", ler=" + ler + "]";
+		}
+		
+		
 }

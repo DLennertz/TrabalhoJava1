@@ -10,16 +10,16 @@ public abstract class Conta {
 		protected double saldo;
 		protected int agencia;
 		protected int numConta;
-		private static int numeroDeContas = 0;
 		Leitura ler = new Leitura();
 		
-		public Conta() {
-			numConta = numeroDeContas;
-			numeroDeContas++;
+		public Conta(){
 		}
 		
-		public static int getNumeroDeContas(){
-			return numeroDeContas;
+		public Conta(String cpfTitular, double saldo, int agencia,int numConta){
+			this.cpfTitular=cpfTitular;
+			this.saldo=saldo;
+			this.agencia=agencia;
+			this.numConta=numConta;	
 		}
 		
 		public int getNumConta() {
@@ -131,4 +131,9 @@ public abstract class Conta {
 		
 			this.transfere(contaDestino, valorTransferencia);
 		}
+
+		@Override
+		public abstract String toString();
+		
+		
 }

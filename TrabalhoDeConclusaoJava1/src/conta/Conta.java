@@ -103,9 +103,8 @@ public abstract class Conta {
 				while(!this.saque(valorSaque)){
 					System.out.println("Erro ao fazer o saque. Insira novo valor");
 					valorSaque = ler.lerDouble();
+				}
 			}
-		}
-			
 		}
 		
 		public void processoDeposito() {

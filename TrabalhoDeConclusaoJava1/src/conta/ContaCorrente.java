@@ -18,7 +18,7 @@ public class ContaCorrente extends Conta{
 		@Override
 		public String toString() {
 			return "ContaCorrente [tipo=" + tipo + ", cpfTitular=" + cpfTitular + ", saldo=" + saldo + ", agencia="
-					+ agencia + ", numConta=" + numConta + ", ler=" + ler + "]";
+					+ agencia + ", numConta=" + numConta + "]";
 		}
 
 		

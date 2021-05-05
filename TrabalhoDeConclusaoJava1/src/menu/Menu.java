@@ -3,7 +3,7 @@ package menu;
 import leitura.Leitura;
 
 public class Menu {
-	public int menuCliente(){
+	public int menuMovimentacaoConta(){
 		int opcao;
 		Leitura ler = new Leitura();
 		System.out.println("Escolha qual opção você deseja: ");

@@ -1,13 +1,17 @@
 package pessoal;
  
 
-public class Gerente extends Funcionario {
+public class Gerente extends Cliente implements Funcionario {
 		private int agenciaGerenciada;
 		
 		public Gerente() {
 			
 		}
 		
+		public Gerente(String senhaFuncionario, String cpfFuncionario, String nome, String sobrenome, Cargo cargoFuncionario,int agencia) {
+			super(senhaFuncionario,cpfFuncionario,nome,sobrenome, cargoFuncionario);
+			this.agenciaGerenciada=agencia;
+		}
 		public int getAgenciaGerenciada() {
 			return agenciaGerenciada;
 		}
@@ -17,10 +21,10 @@ public class Gerente extends Funcionario {
 
 		@Override
 		public String toString() {
-			return "Gerente [agenciaGerenciada=" + agenciaGerenciada + ", getSenhaFuncionario()="
-					+ getSenhaFuncionario() + ", getCpfFuncionario()=" + getCpfFuncionario()
-					+ ", getCargoFuncionario()=" + getCargoFuncionario() + "]";
+			return "Gerente [agenciaGerenciada=" + agenciaGerenciada + ", senhaUsuario=" + senhaUsuario
+					+ ", cpfUsuario=" + cpfUsuario + ", nomeUsuario=" + nomeUsuario + ", sobrenomeUsuario="
+					+ sobrenomeUsuario + ", cargoUsuario=" + cargoUsuario + "]";
 		}
-		
-		
+
+			
 }

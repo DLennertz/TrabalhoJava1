@@ -3,11 +3,12 @@ package principal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
 import conta.*;
 import leitura.Leitura;
 import menu.Menu;
 import pessoal.Cliente;
+import pessoal.Funcionario;
+import pessoal.Usuario;
 
 public class SistemaInterno {
 	
@@ -21,43 +22,43 @@ public class SistemaInterno {
 		boolean continuar = true;
 		Conta contaUsuario = new ContaCorrente();
 		Conta contaDestino = new ContaPoupanca();
-		Cliente usuario = new Cliente();
+		Usuario usuario = new Usuario();
 		
 		
-		Map<String, Cliente> mapClientes = new HashMap<>();
+		Map<String, Usuario> mapUsuario = new HashMap<>();
 		
-		mapClientes = Cliente.getClientes();
-		
+		mapUsuario = Usuario.getUsuarios();
 		
 		//Log in
 		System.out.println("Digite seu CPF : ");
 		cpf= sc.next();
 		
-		usuario = mapClientes.get(cpf);
+		usuario = mapUsuario.get(cpf);
 		
 		while(usuario==null) {
 			System.out.println("CPF não encontrado. Insira novo CPF");
 			cpf= sc.next();
-			usuario = mapClientes.get(cpf);
+			usuario = mapUsuario.get(cpf);
 		}
-		
 		System.out.println(usuario);
-		
 		System.out.println("Digite sua senha: ");
 		senha= sc.next();
 
-		while(!usuario.getSenhaCliente().equals(senha)) {
+		while(!usuario.getSenhaUsuario().equals(senha)) {
 			System.out.println("Senha Incorreta. Insira nova senha");
 			senha= sc.next();//sc.next();
 		}
 		
-		Map<String, Conta>	mapContas = new HashMap<>();
+		Map<Integer, Conta>	mapContas = new HashMap<>();
 		mapContas = Conta.getContas();
-		contaUsuario = mapContas.get(usuario.getCpfCliente());
+		
+		contaUsuario = mapContas.get("64");
+		
+		
 		System.out.println(contaUsuario);
 		//Menu Cliente
 		while(continuar) {
-			switch(menu.menuCliente()) {
+			switch(menu.menuMovimentacaoConta()) {
 			case 1: contaUsuario.processoSaque();
 					break;
 			case 2: contaUsuario.processoDeposito();
@@ -80,6 +81,7 @@ public class SistemaInterno {
 				continuar = false; 
 			}
 		}	
+		
 	}	
 }
 

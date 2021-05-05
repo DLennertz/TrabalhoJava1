@@ -28,17 +28,24 @@ public class Menu {
 		int opcao;
 		boolean continuar = true;
 		while(continuar) {
-			switch(menuMovimentacaoConta()) {
-			case 1: contaUsuario.processoSaque();
+			System.out.println("1- Movimentação na conta\n2- Relatórios");
+			opcao = sc.nextInt();
+			switch(opcao) {
+			case 1:	switch(menuMovimentacaoConta()) {
+					case 1: contaUsuario.processoSaque();
+							break;
+					case 2: contaUsuario.processoDeposito();
+							break;
+					case 3: contaUsuario.processoTransferencia();
+							break;
+					default: System.out.println("Opção invalida");
+			        		break;
+					}
 					break;
-			case 2: contaUsuario.processoDeposito();
-					break;
-			case 3: contaUsuario.processoTransferencia();
-					break;
-			default: System.out.println("Opção invalida");
-	        		break;
+			case 2: break;
+			default: System.out.println("Opção inválida");
+			 		break;
 			}
-			
 			System.out.println(contaUsuario);
 			System.out.println("Deseja realizar nova operação? 1-sim 2-não");
 			opcao = sc.nextInt();

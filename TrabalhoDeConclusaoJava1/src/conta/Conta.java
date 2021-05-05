@@ -1,5 +1,10 @@
 package conta;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import leitura.Leitura;
 
 
@@ -110,9 +115,9 @@ public abstract class Conta {
 		public void processoDeposito() {
 			double valorDeposito;
 		
-			System.out.println("Insira o valor do saque:");
+			System.out.println("Insira o valor do depósito:");
 			valorDeposito = ler.lerDouble();
-			while(!this.saque(valorDeposito)) {
+			while(!this.deposita(valorDeposito)) {
 				System.out.println("Erro ao realizar depósito. Insira novo valor");
 				valorDeposito = ler.lerDouble();
 			}
@@ -135,5 +140,17 @@ public abstract class Conta {
 		@Override
 		public abstract String toString();
 		
-		
+		public static Map<String, Conta> getContas(){
+			Map<String, Conta> contas = new HashMap<>();
+			contas.put("64",new ContaCorrente("64",5500,400,10));
+			contas.put("112",new ContaCorrente("112",6000,200,8));
+			contas.put("5",new ContaCorrente("5",4000,500,15));
+			contas.put("45",new ContaCorrente("45",15500,200,19));
+			contas.put("94",new ContaCorrente("94",4500,310,5));
+			contas.put("23",new ContaCorrente("23",500,100,11));
+			contas.put("4",new ContaCorrente("4",4400,600,12));
+			contas.put("92",new ContaCorrente("92",1100,510,13));
+			
+			return contas;
+		}
 }

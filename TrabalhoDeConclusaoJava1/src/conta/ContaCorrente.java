@@ -4,7 +4,11 @@ public class ContaCorrente extends Conta{
 		private int tipo;
 		
 		public ContaCorrente() {
-			this.tipo=2;
+			
+		}
+		
+		public ContaCorrente(String cpfTitular, double saldo, int agencia,int numConta) {
+			super(cpfTitular, saldo, agencia,numConta);
 		}
 		
 		public int getTipo() {

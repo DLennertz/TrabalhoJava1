@@ -26,7 +26,7 @@ public abstract class Conta {
 			this.agencia=agencia;
 			this.numConta=numConta;	
 		}
-		
+
 		public int getNumConta() {
 			return numConta;
 		}
@@ -152,5 +152,12 @@ public abstract class Conta {
 			contas.put("92",new ContaCorrente("92",1100,510,13));
 			
 			return contas;
+		}
+		
+		public void imprimirSaldo() {
+			System.out.println("########################");
+			System.out.println("Conta : "+ getNumConta());
+			System.out.println("Saldo : " + getSaldo());
+			System.out.println("########################");
 		}
 }

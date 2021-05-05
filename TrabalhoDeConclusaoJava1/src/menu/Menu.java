@@ -23,6 +23,22 @@ public class Menu {
 		return opcao;
 	}
 	
+	public int menuRelatorio() {
+		int opcao;
+		Leitura ler = new Leitura();
+		System.out.println("Escolha qual opção você deseja: ");
+		
+		System.out.println("1- Saldo");
+		System.out.println("2- Relatório de tributação da conta corrente");
+		System.out.println("3 - Relatório de Rendimento da poupança");
+		opcao = ler.lerInteiro();
+		while(opcao < 1 || opcao > 3) {
+			System.out.println("Opção invalida. Escolha uma opção novamente");
+			opcao = ler.lerInteiro();
+		}
+		return opcao;
+	}
+	
 	public void menuCliente(Conta contaUsuario) {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
@@ -42,7 +58,10 @@ public class Menu {
 			        		break;
 					}
 					break;
-			case 2: break;
+			case 2: switch(menuRelatorio()) {
+					case 1:contaUsuario.imprimirSaldo();
+					}
+					break;
 			default: System.out.println("Opção inválida");
 			 		break;
 			}

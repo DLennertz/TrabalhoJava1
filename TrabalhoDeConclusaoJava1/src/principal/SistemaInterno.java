@@ -18,8 +18,8 @@ public class SistemaInterno {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		String senha, cpf;
-		int opcao;
-		boolean continuar = true;
+		
+		
 		Conta contaUsuario = new ContaCorrente();
 		Conta contaDestino = new ContaPoupanca();
 		Usuario usuario = new Usuario();
@@ -49,40 +49,25 @@ public class SistemaInterno {
 			senha= sc.next();//sc.next();
 		}
 		
-		Map<Integer, Conta>	mapContas = new HashMap<>();
+		Map<String, Conta>	mapContas = new HashMap<>();
 		mapContas = Conta.getContas();
 		
-		contaUsuario = mapContas.get("64");
+		contaUsuario = mapContas.get(usuario.getcpfUsuario());
 		
+		switch(usuario.getCargo()) {
+		case Cliente: 	menu.menuCliente(contaUsuario);
+						break;
+						
+		default: 		System.out.println("Erro");
+						break;
+		}
 		
 		System.out.println(contaUsuario);
 		//Menu Cliente
-		while(continuar) {
-			switch(menu.menuMovimentacaoConta()) {
-			case 1: contaUsuario.processoSaque();
-					break;
-			case 2: contaUsuario.processoDeposito();
-					break;
-			case 3: contaUsuario.processoTransferencia();
-					break;
-			default: System.out.println("Opção invalida");
-	        		break;
-			}
-			
-			System.out.println(contaUsuario);
-			System.out.println("Deseja realizar nova operação? 1-sim 2-não");
-			opcao = sc.nextInt();
-			
-			while(opcao != 1 && opcao !=2) {
-				System.out.println("Opção invalida. insira nova opção");
-				opcao = sc.nextInt();
-			}
-			if(opcao == 2) {
-				continuar = false; 
-			}
+		
 		}	
 		
 	}	
-}
+
 
 

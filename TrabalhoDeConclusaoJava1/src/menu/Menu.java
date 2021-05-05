@@ -1,6 +1,10 @@
 package menu;
 
+import java.util.Scanner;
+
+import conta.Conta;
 import leitura.Leitura;
+import pessoal.Usuario;
 
 public class Menu {
 	public int menuMovimentacaoConta(){
@@ -19,5 +23,34 @@ public class Menu {
 		return opcao;
 	}
 	
+	public void menuCliente(Conta contaUsuario) {
+		Scanner sc = new Scanner(System.in);
+		int opcao;
+		boolean continuar = true;
+		while(continuar) {
+			switch(menuMovimentacaoConta()) {
+			case 1: contaUsuario.processoSaque();
+					break;
+			case 2: contaUsuario.processoDeposito();
+					break;
+			case 3: contaUsuario.processoTransferencia();
+					break;
+			default: System.out.println("Opção invalida");
+	        		break;
+			}
+			
+			System.out.println(contaUsuario);
+			System.out.println("Deseja realizar nova operação? 1-sim 2-não");
+			opcao = sc.nextInt();
+			
+			while(opcao != 1 && opcao !=2) {
+				System.out.println("Opção invalida. insira nova opção");
+				opcao = sc.nextInt();
+			}
+			if(opcao == 2) {
+				continuar = false; 
+			}
+		}
 	
+	}
 }

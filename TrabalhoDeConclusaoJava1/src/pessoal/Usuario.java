@@ -30,6 +30,9 @@ public class Usuario {
 		return cpfUsuario;
 	}
 	
+	public Cargo getCargo() {
+		return cargoUsuario;
+	}
 	public static Map <String, Usuario> getUsuarios(){
 		Map<String, Usuario> mapUsuario= new HashMap<>();
 		

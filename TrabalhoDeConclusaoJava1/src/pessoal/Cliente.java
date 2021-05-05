@@ -1,4 +1,4 @@
-package cliente;
+package pessoal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import conta.Conta;
 import conta.ContaCorrente;
 
-public class Cliente {
+public class Cliente extends Usuario{
 		
 		private String senhaCliente;
 		private String cpfCliente; 

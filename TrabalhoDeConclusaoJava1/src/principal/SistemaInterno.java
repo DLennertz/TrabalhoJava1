@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import cliente.Cliente;
 import conta.*;
 import leitura.Leitura;
 import menu.Menu;
+import pessoal.Cliente;
 
 public class SistemaInterno {
 	
@@ -46,9 +46,9 @@ public class SistemaInterno {
 		System.out.println("Digite sua senha: ");
 		senha= sc.next();
 
-		while(usuario.getSenhaCliente()!=senha) {
+		while(!usuario.getSenhaCliente().equals(senha)) {
 			System.out.println("Senha Incorreta. Insira nova senha");
-			senha= usuario.getSenhaCliente();//sc.next();
+			senha= sc.next();//sc.next();
 		}
 		
 		Map<String, Conta>	mapContas = new HashMap<>();

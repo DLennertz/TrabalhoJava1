@@ -25,9 +25,6 @@ public class SistemaInterno {
 		Map<String, Usuario> mapUsuario = new HashMap<>();
 		mapUsuario = Usuario.getUsuarios();
 		
-		Map<Integer, Conta>	mapContas = new HashMap<>();
-		mapContas = Conta.getContas();
-		
 		//Log in
 		System.out.println("Digite seu CPF : ");
 		cpf= sc.next();
@@ -47,6 +44,9 @@ public class SistemaInterno {
 			System.out.println("Senha Incorreta. Insira nova senha");
 			senha= sc.next();
 		}
+	
+		Map<Integer, Conta>	mapContas = new HashMap<>();
+		mapContas = Conta.getContas();
 		
 		if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaEnum.ContaCorrente){
 			ContaCorrente contaUsuario = new ContaCorrente();
@@ -55,7 +55,7 @@ public class SistemaInterno {
 			switch(usuario.getCargo()) {
 			case Cliente: 	menu.menuCliente(contaUsuario);
 							break;
-			case Gerente: menu.menuGerente(contaUsuario);
+			case Gerente: menu.menuGerente(contaUsuario,usuario);
 							break;
 			default: 		System.out.println("Erro");
 							break;

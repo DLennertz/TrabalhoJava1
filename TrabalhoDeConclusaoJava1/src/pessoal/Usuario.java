@@ -43,8 +43,8 @@ public class Usuario {
 	public static Map <String, Usuario> getUsuarios(){
 		Map<String, Usuario> mapUsuario= new HashMap<>();
 		
-		mapUsuario.put("265", new Gerente("abcdef", "265", "Gustavo", "Almeida", UsuarioEnum.Gerente,200,678));
-		mapUsuario.put("976", new Gerente("vwxyz", "976", "Alan", "Martins", UsuarioEnum.Gerente,400,53));
+		mapUsuario.put("265", new Gerente("abcdef", "265", "Gustavo", "Almeida", UsuarioEnum.Gerente,678,200));
+		mapUsuario.put("976", new Gerente("vwxyz", "976", "Alan", "Martins", UsuarioEnum.Gerente,53,400));
 		mapUsuario.put("9465", new Diretor("65432", "9465", "Cintia", "Souza" , UsuarioEnum.Diretor,78));
 		mapUsuario.put("5556", new Diretor("1472", "5556", "Marcelo", "Andrade" , UsuarioEnum.Diretor,60));
 		mapUsuario.put("333", new Presidente("klmno", "333", "Bianca", "Silva", UsuarioEnum.Presidente,1));

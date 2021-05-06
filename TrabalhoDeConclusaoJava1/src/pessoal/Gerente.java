@@ -27,5 +27,7 @@ public class Gerente extends Cliente implements Funcionario {
 					+ sobrenomeUsuario + ", cargoUsuario=" + cargoUsuario + "]";
 		}
 
-			
+		public void relatorioGerente() {
+			System.out.println("ENTROU NA FUNÇAO!");
+		}
 }

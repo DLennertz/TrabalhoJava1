@@ -124,12 +124,16 @@ public abstract class Conta {
 		}
 		
 		public void processoTransferencia() {
-			int numContaDestino;
+			
 			double valorTransferencia;
 			System.out.println("Insira o número da conta de destino: ");
-			numContaDestino = ler.lerInteiro();
 			
-			Conta contaDestino = new ContaPoupanca();
+			Conta contaDestino = retornaConta();
+	
+			while(contaDestino == null) {
+				System.out.println("Conta não encontrada. Indira novamente o número da conta");
+				
+			}
 			
 			System.out.println("Insira o valor a ser transferido: ");
 			valorTransferencia = ler.lerDouble();
@@ -140,16 +144,21 @@ public abstract class Conta {
 		@Override
 		public abstract String toString();
 		
-		public static Map<String, Conta> getContas(){
-			Map<String, Conta> contas = new HashMap<>();
-			contas.put("64",new ContaCorrente("64",5500,400,10));
-			contas.put("112",new ContaCorrente("112",6000,200,8));
-			contas.put("5",new ContaCorrente("5",4000,500,15));
-			contas.put("45",new ContaCorrente("45",15500,200,19));
-			contas.put("94",new ContaCorrente("94",4500,310,5));
-			contas.put("23",new ContaCorrente("23",500,100,11));
-			contas.put("4",new ContaCorrente("4",4400,600,12));
-			contas.put("92",new ContaCorrente("92",1100,510,13));
+		public static Map<Integer, Conta> getContas(){
+			Map<Integer, Conta> contas = new HashMap<>();
+			contas.put(678,new ContaCorrente("265",55000,400,678));
+			contas.put(53,new ContaCorrente("976",6000,200,53));
+			contas.put(78,new ContaCorrente("9465",4000,500,78));
+			contas.put(60,new ContaCorrente("5556",15500,200,60));
+			contas.put(1,new ContaCorrente("333",4500,310,1));
+			contas.put(10,new ContaCorrente("64",5500,400,10));
+			contas.put(8,new ContaCorrente("112",6000,200,8));
+			contas.put(15,new ContaCorrente("5",4000,500,15));
+			contas.put(19,new ContaCorrente("45",15500,200,19));
+			contas.put(5,new ContaCorrente("94",4500,310,5));
+			contas.put(11,new ContaCorrente("23",500,100,11));
+			contas.put(12,new ContaCorrente("4",4400,600,12));
+			contas.put(13,new ContaCorrente("92",1100,510,13));
 			
 			return contas;
 		}
@@ -159,5 +168,13 @@ public abstract class Conta {
 			System.out.println("Conta : "+ getNumConta());
 			System.out.println("Saldo : " + getSaldo());
 			System.out.println("########################");
+		}
+		
+		public Conta retornaConta() {
+			int numContaDestino;
+			Map<Integer,Conta> contas = new HashMap<>();
+			contas = getContas();
+			numContaDestino = ler.lerInteiro();
+			return (Conta) contas.entrySet().stream().filter(e -> e.getKey() == numContaDestino).findFirst().orElse(null);
 		}
 }

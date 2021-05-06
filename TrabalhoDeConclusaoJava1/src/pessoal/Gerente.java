@@ -8,8 +8,8 @@ public class Gerente extends Cliente implements Funcionario {
 			
 		}
 		
-		public Gerente(String senhaFuncionario, String cpfFuncionario, String nome, String sobrenome, Cargo cargoFuncionario,int agencia) {
-			super(senhaFuncionario,cpfFuncionario,nome,sobrenome, cargoFuncionario);
+		public Gerente(String senhaFuncionario, String cpfFuncionario, String nome, String sobrenome, Cargo cargoFuncionario,int numConta,int agencia) {
+			super(senhaFuncionario,cpfFuncionario,nome,sobrenome, cargoFuncionario,numConta);
 			this.agenciaGerenciada=agencia;
 		}
 		public int getAgenciaGerenciada() {

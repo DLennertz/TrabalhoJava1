@@ -13,8 +13,8 @@ public class Cliente extends Usuario{
 			
 		}
 		
-		public Cliente(String senhaCliente, String cpfCliente, String nomeCliente, String sobrenomeCliente, Cargo cargo) {
-			super(senhaCliente, cpfCliente, nomeCliente, sobrenomeCliente, cargo);
+		public Cliente(String senhaCliente, String cpfCliente, String nomeCliente, String sobrenomeCliente, Cargo cargo,int numConta) {
+			super(senhaCliente, cpfCliente, nomeCliente, sobrenomeCliente, cargo, numConta);
 		}
 
 		@Override

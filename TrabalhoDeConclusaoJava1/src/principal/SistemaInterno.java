@@ -49,10 +49,10 @@ public class SistemaInterno {
 			senha= sc.next();//sc.next();
 		}
 		
-		Map<String, Conta>	mapContas = new HashMap<>();
+		Map<Integer, Conta>	mapContas = new HashMap<>();
 		mapContas = Conta.getContas();
 		
-		contaUsuario = mapContas.get(usuario.getcpfUsuario());
+		contaUsuario = mapContas.get(usuario.getNumConta());
 		
 		switch(usuario.getCargo()) {
 		case Cliente: 	menu.menuCliente(contaUsuario);

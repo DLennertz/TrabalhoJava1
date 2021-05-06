@@ -13,11 +13,11 @@ public class Menu {
 		System.out.println("Escolha qual opção você deseja: ");
 		
 		System.out.println("1- Saque");
-		System.out.println("2- Deposito");
-		System.out.println("3 - Tranferencia de conta para conta");
+		System.out.println("2- Depósito");
+		System.out.println("3 - Tranferência de conta para conta");
 		opcao = ler.lerInteiro();
 		while(opcao < 1 || opcao > 3) {
-			System.out.println("Opção invalida. Escolha uma opção novamente");
+			System.out.println("Opção inválida. Escolha uma opção novamente");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;

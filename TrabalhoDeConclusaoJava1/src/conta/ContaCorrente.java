@@ -3,23 +3,24 @@ package conta;
 import enumerador.ContaEnum;
 
 public class ContaCorrente extends Conta{
-		private int tipo;
+		private ContaEnum tipoConta;
 		
 		public ContaCorrente() {
 			
 		}
 		
 		public ContaCorrente(String cpfTitular, double saldo, int agencia,int numConta, ContaEnum tipo) {
-			super(cpfTitular, saldo, agencia,numConta,tipo);
+			super(cpfTitular, saldo, agencia,numConta);
+			this.tipoConta=tipo;
 		}
 		
-		public int getTipo() {
-			return this.tipo;
+		public ContaEnum getTipo() {
+			return this.tipoConta;
 		}
 
 		@Override
 		public String toString() {
-			return "ContaCorrente [tipo=" + tipo + ", cpfTitular=" + cpfTitular + ", saldo=" + saldo + ", agencia="
+			return "ContaCorrente [tipo=" + tipoConta + ", cpfTitular=" + cpfTitular + ", saldo=" + saldo + ", agencia="
 					+ agencia + ", numConta=" + numConta + "]";
 		}
 

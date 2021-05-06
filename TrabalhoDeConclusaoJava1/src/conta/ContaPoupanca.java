@@ -1,24 +1,26 @@
 package conta;
 
+import enumerador.ContaEnum;
+
 public class ContaPoupanca extends Conta{
-		private int tipo;
+	    private ContaEnum tipoConta;
 		
 		public ContaPoupanca() {
-			this.tipo=1;
+			this.tipoConta=ContaEnum.ContaPoupanca;
 		}
 		
-		public int getTipo(){
-			return this.tipo;
+		public ContaEnum getTipo(){
+			return this.tipoConta;
 		}
 
 		@Override
 		public String toString() {
-			return "ContaPoupanca [tipo=" + tipo + ", cpfTitular=" + cpfTitular + ", saldo=" + saldo + ", agencia="
+			return "ContaPoupanca [tipo=" + tipoConta + ", cpfTitular=" + cpfTitular + ", saldo=" + saldo + ", agencia="
 					+ agencia + ", numConta=" + numConta + ", ler=" + ler + "]";
 		}
 		
-		public void simulacaoRendimento(){
-			
+		public double simulacaoRendimento(double dias, double investimento){
+			return dias * investimento;
 		}
 		
 		

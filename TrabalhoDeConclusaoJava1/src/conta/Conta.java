@@ -19,27 +19,26 @@ public abstract class Conta {
 		protected double saldo;
 		protected int agencia;
 		protected int numConta;
-		protected ContaEnum tipoConta;
+		
 		Leitura ler = new Leitura();
 		
 		public Conta(){
 		}
 		
-		public Conta(String cpfTitular, double saldo, int agencia,int numConta,ContaEnum tipo){
+		public Conta(String cpfTitular, double saldo, int agencia,int numConta){
 			this.cpfTitular=cpfTitular;
 			this.saldo=saldo;
 			this.agencia=agencia;
 			this.numConta=numConta;	
-			this.tipoConta=tipo;
 		}
 
 		public int getNumConta() {
 			return numConta;
 		}
 		
-		public ContaEnum getTipoConta() {
-			return tipoConta;
-		}
+//		public ContaEnum getTipoConta() {
+//			return tipoConta;
+//		}
 		public void setCPFTitular(String cpfTitular){
 			this.cpfTitular =cpfTitular;
 		}

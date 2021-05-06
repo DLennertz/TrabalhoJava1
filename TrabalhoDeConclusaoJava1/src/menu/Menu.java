@@ -63,15 +63,15 @@ public class Menu {
 			case 2: switch(menuRelatorio()) {
 					case 1:contaUsuario.imprimirSaldo();
 							break;
-					case 2: if(contaUsuario.getTipoConta()==ContaEnum.ContaCorrente) {
+					case 2: if(((ContaCorrente)contaUsuario).getTipo()==ContaEnum.ContaCorrente) {
 								((ContaCorrente)contaUsuario).getRelatorioTributacao();
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Corrente");
 							}
 							break;
-					case 3: if(contaUsuario.getTipoConta()==ContaEnum.ContaPoupanca) {
-								((ContaPoupanca)contaUsuario).simulacaoRendimento();
+					case 3: if(((ContaPoupanca)contaUsuario).getTipo()==ContaEnum.ContaPoupanca) {
+								((ContaPoupanca)contaUsuario).simulacaoRendimento(1,5);
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Poupança");
@@ -79,6 +79,7 @@ public class Menu {
 							break;
 			default: System.out.println("Opção inválida");
 			 		break;
+			}
 			}
 			System.out.println(contaUsuario);
 			System.out.println("Deseja realizar nova operação? 1-sim 2-não");
@@ -91,7 +92,7 @@ public class Menu {
 			if(opcao == 2) {
 				continuar = false; 
 			}
-		}
+		
 	
 	}
 }

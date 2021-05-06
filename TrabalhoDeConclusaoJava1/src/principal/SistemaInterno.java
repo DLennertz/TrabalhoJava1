@@ -48,9 +48,7 @@ public class SistemaInterno {
 			senha= sc.next();
 		}
 		
-		
-		
-		if((mapContas.get(usuario.getNumConta()).getTipoConta()==ContaEnum.ContaCorrente)){
+		if(((ContaCorrente) mapContas.get(usuario.getNumConta())).getTipo() == ContaEnum.ContaCorrente){
 			ContaCorrente contaUsuario = new ContaCorrente();
 			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
 			
@@ -62,7 +60,7 @@ public class SistemaInterno {
 							break;
 			}
 		}
-		else if((mapContas.get(usuario.getNumConta()).getTipoConta()==ContaEnum.ContaPoupanca)){
+		else if(((ContaPoupanca) mapContas.get(usuario.getNumConta())).getTipo() == ContaEnum.ContaPoupanca){
 			ContaPoupanca contaUsuario = new ContaPoupanca();
 			contaUsuario =(ContaPoupanca) mapContas.get(usuario.getNumConta());
 			
@@ -83,7 +81,17 @@ public class SistemaInterno {
 		System.out.println(mapContas.get(10));
 		//Menu Cliente
 		
-		}	
+		}
+
+	private static boolean ContaCorrente(boolean b) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private static boolean ContaPoupanca(boolean b) {
+		// TODO Auto-generated method stub
+		return false;
+	}	
 		
 	}	
 

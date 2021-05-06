@@ -48,21 +48,22 @@ public class SistemaInterno {
 			senha= sc.next();
 		}
 		
-		if(((ContaCorrente) mapContas.get(usuario.getNumConta())).getTipo() == ContaEnum.ContaCorrente){
+		if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaEnum.ContaCorrente){
 			ContaCorrente contaUsuario = new ContaCorrente();
 			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getCargo()) {
 			case Cliente: 	menu.menuCliente(contaUsuario);
 							break;
-							
+			case Gerente: menu.menuGerente(contaUsuario);
+							break;
 			default: 		System.out.println("Erro");
 							break;
 			}
 		}
-		else if(((ContaPoupanca) mapContas.get(usuario.getNumConta())).getTipo() == ContaEnum.ContaPoupanca){
+		else if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaEnum.ContaPoupanca){
 			ContaPoupanca contaUsuario = new ContaPoupanca();
-			contaUsuario =(ContaPoupanca) mapContas.get(usuario.getNumConta());
+			contaUsuario = (ContaPoupanca) mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getCargo()) {
 			case Cliente: 	menu.menuCliente(contaUsuario);

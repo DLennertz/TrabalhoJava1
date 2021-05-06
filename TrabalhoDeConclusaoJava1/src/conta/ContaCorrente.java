@@ -3,15 +3,15 @@ package conta;
 import enumerador.ContaEnum;
 
 public class ContaCorrente extends Conta{
-		private ContaEnum tipoConta;
+		//private ContaEnum tipoConta;
 		
 		public ContaCorrente() {
 			
 		}
 		
 		public ContaCorrente(String cpfTitular, double saldo, int agencia,int numConta, ContaEnum tipo) {
-			super(cpfTitular, saldo, agencia,numConta);
-			this.tipoConta=tipo;
+			super(cpfTitular, saldo, agencia,numConta,tipo);
+			//this.tipoConta=tipo;
 		}
 		
 		public ContaEnum getTipo() {

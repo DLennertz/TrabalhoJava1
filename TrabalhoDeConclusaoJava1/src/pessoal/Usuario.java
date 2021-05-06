@@ -56,6 +56,8 @@ public class Usuario {
 		mapUsuario.put("23",new Cliente("serratec","23","Victoria","Santana",UsuarioEnum.Cliente,11));
 		mapUsuario.put("4",new Cliente("wasp","4","Julia","Souza",UsuarioEnum.Cliente,12));
 		mapUsuario.put("92",new Cliente("rio2016","92","Eli","Pereira",UsuarioEnum.Cliente,13));
+		mapUsuario.put("321",new Cliente("wasp","321","Julia","Souza",UsuarioEnum.Cliente,1001));
+		mapUsuario.put("9210",new Cliente("rio2016","9210","Eli","Pereira",UsuarioEnum.Cliente,1002));
 		 
 		return mapUsuario;
 	}

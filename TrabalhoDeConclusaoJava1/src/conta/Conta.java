@@ -19,26 +19,28 @@ public abstract class Conta {
 		protected double saldo;
 		protected int agencia;
 		protected int numConta;
+		protected ContaEnum tipoConta;
 		
 		Leitura ler = new Leitura();
 		
 		public Conta(){
 		}
 		
-		public Conta(String cpfTitular, double saldo, int agencia,int numConta){
+		public Conta(String cpfTitular, double saldo, int agencia,int numConta, ContaEnum tipo){
 			this.cpfTitular=cpfTitular;
 			this.saldo=saldo;
 			this.agencia=agencia;
 			this.numConta=numConta;	
+			this.tipoConta=tipo;
 		}
 
 		public int getNumConta() {
 			return numConta;
 		}
 		
-//		public ContaEnum getTipoConta() {
-//			return tipoConta;
-//		}
+		public ContaEnum getTipoConta() {
+			return tipoConta;
+		}
 		public void setCPFTitular(String cpfTitular){
 			this.cpfTitular =cpfTitular;
 		}
@@ -169,6 +171,8 @@ public abstract class Conta {
 			contas.put(11,new ContaCorrente("23",500,100,11,ContaEnum.ContaCorrente));
 			contas.put(12,new ContaCorrente("4",4400,600,12,ContaEnum.ContaCorrente));
 			contas.put(13,new ContaCorrente("92",1100,510,13,ContaEnum.ContaCorrente));
+			contas.put(1001,new ContaPoupanca("321",4400,600,1001,ContaEnum.ContaPoupanca));
+			contas.put(1002,new ContaPoupanca("9210",1100,510,1002,ContaEnum.ContaPoupanca));
 			
 			return contas;
 		}

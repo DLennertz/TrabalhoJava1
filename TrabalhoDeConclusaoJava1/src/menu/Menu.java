@@ -48,6 +48,7 @@ public class Menu {
 		while(continuar) {
 			System.out.println("1- Movimentação na conta\n2- Relatórios");
 			opcao = sc.nextInt();
+			
 			switch(opcao) {
 			case 1:	switch(menuMovimentacaoConta()) {
 					case 1: contaUsuario.processoSaque();
@@ -63,15 +64,15 @@ public class Menu {
 			case 2: switch(menuRelatorio()) {
 					case 1:contaUsuario.imprimirSaldo();
 							break;
-					case 2: if(((ContaCorrente)contaUsuario).getTipo()==ContaEnum.ContaCorrente) {
+					case 2: if(contaUsuario.getTipoConta()==ContaEnum.ContaCorrente) {
 								((ContaCorrente)contaUsuario).getRelatorioTributacao();
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Corrente");
 							}
 							break;
-					case 3: if(((ContaPoupanca)contaUsuario).getTipo()==ContaEnum.ContaPoupanca) {
-								((ContaPoupanca)contaUsuario).simulacaoRendimento(1,5);
+					case 3: if(contaUsuario.getTipoConta()==ContaEnum.ContaPoupanca) {
+								((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Poupança");
@@ -94,6 +95,12 @@ public class Menu {
 			}
 		
 	
+		}
+		
+	
 	}
-}
+	
+	public void menuGerente(Conta contaUsuario) {
+		
+	}
 }

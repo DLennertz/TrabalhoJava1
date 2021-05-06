@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import conta.*;
+import enumerador.ContaEnum;
 import leitura.Leitura;
 import menu.Menu;
 import pessoal.Cliente;
@@ -19,16 +20,13 @@ public class SistemaInterno {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		String senha, cpf;
-		
-		
-		Conta contaUsuario = new ContaCorrente();
-		Conta contaDestino = new ContaPoupanca();
 		Usuario usuario = new Usuario();
 		
-		
 		Map<String, Usuario> mapUsuario = new HashMap<>();
-		
 		mapUsuario = Usuario.getUsuarios();
+		
+		Map<Integer, Conta>	mapContas = new HashMap<>();
+		mapContas = Conta.getContas();
 		
 		//Log in
 		System.out.println("Digite seu CPF : ");
@@ -47,21 +45,40 @@ public class SistemaInterno {
 
 		while(!usuario.getSenhaUsuario().equals(senha)) {
 			System.out.println("Senha Incorreta. Insira nova senha");
-			senha= sc.next();//sc.next();
+			senha= sc.next();
 		}
 		
-		Map<Integer, Conta>	mapContas = new HashMap<>();
-		mapContas = Conta.getContas();
 		
-		contaUsuario = mapContas.get(usuario.getNumConta());
 		
-		switch(usuario.getCargo()) {
-		case Cliente: 	menu.menuCliente(contaUsuario);
-						break;
-						
-		default: 		System.out.println("Erro");
-						break;
+		if((mapContas.get(usuario.getNumConta()).getTipoConta()==ContaEnum.ContaCorrente)){
+			ContaCorrente contaUsuario = new ContaCorrente();
+			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
+			
+			switch(usuario.getCargo()) {
+			case Cliente: 	menu.menuCliente(contaUsuario);
+							break;
+							
+			default: 		System.out.println("Erro");
+							break;
+			}
 		}
+		else if((mapContas.get(usuario.getNumConta()).getTipoConta()==ContaEnum.ContaPoupanca)){
+			ContaPoupanca contaUsuario = new ContaPoupanca();
+			contaUsuario =(ContaPoupanca) mapContas.get(usuario.getNumConta());
+			
+			switch(usuario.getCargo()) {
+			case Cliente: 	menu.menuCliente(contaUsuario);
+							break;
+							
+			default: 		System.out.println("Erro");
+							break;
+			}
+		}
+		else {
+			System.out.println("Erro tipo de conta inválida");
+		}
+		
+		
 		System.out.println(mapContas.get(12));
 		System.out.println(mapContas.get(10));
 		//Menu Cliente

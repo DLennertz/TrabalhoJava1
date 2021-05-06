@@ -9,6 +9,7 @@ import menu.Menu;
 import pessoal.Cliente;
 import pessoal.Funcionario;
 import pessoal.Usuario;
+import pessoal.Gerente;
 
 public class SistemaInterno {
 	
@@ -61,8 +62,8 @@ public class SistemaInterno {
 		default: 		System.out.println("Erro");
 						break;
 		}
-		
-		System.out.println(contaUsuario);
+		System.out.println(mapContas.get(12));
+		System.out.println(mapContas.get(10));
 		//Menu Cliente
 		
 		}	

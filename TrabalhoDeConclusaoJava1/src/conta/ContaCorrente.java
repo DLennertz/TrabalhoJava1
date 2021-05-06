@@ -1,5 +1,7 @@
 package conta;
 
+import enumerador.ContaEnum;
+
 public class ContaCorrente extends Conta{
 		private int tipo;
 		
@@ -7,8 +9,8 @@ public class ContaCorrente extends Conta{
 			
 		}
 		
-		public ContaCorrente(String cpfTitular, double saldo, int agencia,int numConta) {
-			super(cpfTitular, saldo, agencia,numConta);
+		public ContaCorrente(String cpfTitular, double saldo, int agencia,int numConta, ContaEnum tipo) {
+			super(cpfTitular, saldo, agencia,numConta,tipo);
 		}
 		
 		public int getTipo() {
@@ -21,7 +23,9 @@ public class ContaCorrente extends Conta{
 					+ agencia + ", numConta=" + numConta + "]";
 		}
 
-		
+		public void getRelatorioTributacao() {
+			
+		}
 		
 		
 }

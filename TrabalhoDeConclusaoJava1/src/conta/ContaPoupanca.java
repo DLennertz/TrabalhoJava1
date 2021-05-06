@@ -17,5 +17,9 @@ public class ContaPoupanca extends Conta{
 					+ agencia + ", numConta=" + numConta + ", ler=" + ler + "]";
 		}
 		
+		public void simulacaoRendimento(){
+			
+		}
+		
 		
 }

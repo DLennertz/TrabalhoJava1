@@ -1,5 +1,6 @@
 package pessoal;
- 
+
+import enumerador.UsuarioEnum;
 
 public class Gerente extends Cliente implements Funcionario {
 		private int agenciaGerenciada;
@@ -8,7 +9,7 @@ public class Gerente extends Cliente implements Funcionario {
 			
 		}
 		
-		public Gerente(String senhaFuncionario, String cpfFuncionario, String nome, String sobrenome, Cargo cargoFuncionario,int numConta,int agencia) {
+		public Gerente(String senhaFuncionario, String cpfFuncionario, String nome, String sobrenome, UsuarioEnum cargoFuncionario,int numConta,int agencia) {
 			super(senhaFuncionario,cpfFuncionario,nome,sobrenome, cargoFuncionario,numConta);
 			this.agenciaGerenciada=agencia;
 		}

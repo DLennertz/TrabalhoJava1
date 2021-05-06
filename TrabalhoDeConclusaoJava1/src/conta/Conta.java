@@ -1,10 +1,14 @@
 package conta;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import enumerador.ContaEnum;
 import leitura.Leitura;
 
 
@@ -15,20 +19,26 @@ public abstract class Conta {
 		protected double saldo;
 		protected int agencia;
 		protected int numConta;
+		protected ContaEnum tipoConta;
 		Leitura ler = new Leitura();
 		
 		public Conta(){
 		}
 		
-		public Conta(String cpfTitular, double saldo, int agencia,int numConta){
+		public Conta(String cpfTitular, double saldo, int agencia,int numConta,ContaEnum tipo){
 			this.cpfTitular=cpfTitular;
 			this.saldo=saldo;
 			this.agencia=agencia;
 			this.numConta=numConta;	
+			this.tipoConta=tipo;
 		}
 
 		public int getNumConta() {
 			return numConta;
+		}
+		
+		public ContaEnum getTipoConta() {
+			return tipoConta;
 		}
 		public void setCPFTitular(String cpfTitular){
 			this.cpfTitular =cpfTitular;
@@ -131,14 +141,15 @@ public abstract class Conta {
 			Conta contaDestino = retornaConta();
 	
 			while(contaDestino == null) {
-				System.out.println("Conta não encontrada. Indira novamente o número da conta");
-				
+				System.out.println("Conta não encontrada. Insira novamente o número da conta");
+				contaDestino = retornaConta();
 			}
 			
 			System.out.println("Insira o valor a ser transferido: ");
 			valorTransferencia = ler.lerDouble();
 		
 			this.transfere(contaDestino, valorTransferencia);
+			System.out.println(contaDestino);
 		}
 
 		@Override
@@ -146,26 +157,33 @@ public abstract class Conta {
 		
 		public static Map<Integer, Conta> getContas(){
 			Map<Integer, Conta> contas = new HashMap<>();
-			contas.put(678,new ContaCorrente("265",55000,400,678));
-			contas.put(53,new ContaCorrente("976",6000,200,53));
-			contas.put(78,new ContaCorrente("9465",4000,500,78));
-			contas.put(60,new ContaCorrente("5556",15500,200,60));
-			contas.put(1,new ContaCorrente("333",4500,310,1));
-			contas.put(10,new ContaCorrente("64",5500,400,10));
-			contas.put(8,new ContaCorrente("112",6000,200,8));
-			contas.put(15,new ContaCorrente("5",4000,500,15));
-			contas.put(19,new ContaCorrente("45",15500,200,19));
-			contas.put(5,new ContaCorrente("94",4500,310,5));
-			contas.put(11,new ContaCorrente("23",500,100,11));
-			contas.put(12,new ContaCorrente("4",4400,600,12));
-			contas.put(13,new ContaCorrente("92",1100,510,13));
+			contas.put(678,new ContaCorrente("265",55000,400,678,ContaEnum.ContaCorrente));
+			contas.put(53,new ContaCorrente("976",6000,200,53,ContaEnum.ContaCorrente));
+			contas.put(78,new ContaCorrente("9465",4000,500,78,ContaEnum.ContaCorrente));
+			contas.put(60,new ContaCorrente("5556",15500,200,60,ContaEnum.ContaCorrente));
+			contas.put(1,new ContaCorrente("333",4500,310,1,ContaEnum.ContaCorrente));
+			contas.put(10,new ContaCorrente("64",5500,400,10,ContaEnum.ContaCorrente));
+			contas.put(8,new ContaCorrente("112",6000,200,8,ContaEnum.ContaCorrente));
+			contas.put(15,new ContaCorrente("5",4000,500,15,ContaEnum.ContaCorrente));
+			contas.put(19,new ContaCorrente("45",15500,200,19,ContaEnum.ContaCorrente));
+			contas.put(5,new ContaCorrente("94",4500,310,5,ContaEnum.ContaCorrente));
+			contas.put(11,new ContaCorrente("23",500,100,11,ContaEnum.ContaCorrente));
+			contas.put(12,new ContaCorrente("4",4400,600,12,ContaEnum.ContaCorrente));
+			contas.put(13,new ContaCorrente("92",1100,510,13,ContaEnum.ContaCorrente));
 			
 			return contas;
 		}
 		
 		public void imprimirSaldo() {
+			LocalDateTime hoje = LocalDateTime.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+			String hojeformatado = hoje.format(formatter);
 			System.out.println("########################");
+			System.out.println("SALDO");
+			System.out.println("########################");
+			System.out.println("Data : "+ hojeformatado);
 			System.out.println("Conta : "+ getNumConta());
+			System.out.println("Agencia: " + getAgencia());
 			System.out.println("Saldo : " + getSaldo());
 			System.out.println("########################");
 		}
@@ -175,6 +193,7 @@ public abstract class Conta {
 			Map<Integer,Conta> contas = new HashMap<>();
 			contas = getContas();
 			numContaDestino = ler.lerInteiro();
-			return (Conta) contas.entrySet().stream().filter(e -> e.getKey() == numContaDestino).findFirst().orElse(null);
+			return contas.get(numContaDestino);
 		}
+		
 }

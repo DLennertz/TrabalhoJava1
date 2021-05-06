@@ -1,10 +1,12 @@
 package menu;
 
 import java.util.Scanner;
-
+import enumerador.ContaEnum;
 import conta.Conta;
 import leitura.Leitura;
 import pessoal.Usuario;
+import conta.ContaCorrente;
+import conta.ContaPoupanca;
 
 public class Menu {
 	public int menuMovimentacaoConta(){
@@ -60,8 +62,21 @@ public class Menu {
 					break;
 			case 2: switch(menuRelatorio()) {
 					case 1:contaUsuario.imprimirSaldo();
-					}
-					break;
+							break;
+					case 2: if(contaUsuario.getTipoConta()==ContaEnum.ContaCorrente) {
+								((ContaCorrente)contaUsuario).getRelatorioTributacao();
+							}
+							else
+							{	System.out.println("A conta não é do tipo Conta Corrente");
+							}
+							break;
+					case 3: if(contaUsuario.getTipoConta()==ContaEnum.ContaPoupanca) {
+								((ContaPoupanca)contaUsuario).simulacaoRendimento();
+							}
+							else
+							{	System.out.println("A conta não é do tipo Conta Poupança");
+							}
+							break;
 			default: System.out.println("Opção inválida");
 			 		break;
 			}
@@ -79,4 +94,5 @@ public class Menu {
 		}
 	
 	}
+}
 }

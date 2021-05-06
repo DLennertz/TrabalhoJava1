@@ -63,8 +63,8 @@ public class Menu {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
 		boolean continuar = true;
-		while(continuar) {
-			System.out.println("1- Movimentação na conta\n2- Relatórios");
+		do {
+			System.out.println("1- Movimentação na conta\n2- Relatórios\n3- Sair");
 			opcao = sc.nextInt();
 			
 			switch(opcao) {
@@ -96,26 +96,18 @@ public class Menu {
 							{	System.out.println("A conta não é do tipo Conta Poupança");
 							}
 							break;
+					default:System.out.println("Erro");
+							break;
+					}
+			case 3:continuar = false;
+					break;
 			default: System.out.println("Opção inválida");
 			 		break;
 			}
-			}
-			System.out.println(contaUsuario);
-			System.out.println("Deseja realizar nova operação? 1-sim 2-não");
-			opcao = sc.nextInt();
-			
-			while(opcao != 1 && opcao !=2) {
-				System.out.println("Opção invalida. insira nova opção");
-				opcao = sc.nextInt();
-			}
-			if(opcao == 2) {
-				continuar = false; 
-			}
-		
-	
 		}
-		
+		while(continuar);
 	}
+		
 	
 	public void menuGerente(Conta contaUsuario, Usuario usuario) {
 		Scanner sc = new Scanner(System.in);

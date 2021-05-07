@@ -1,0 +1,15 @@
+Gerente;Gustavo;Almeida;abcdef;265;678;200
+Gerente;Alan;Martins;vwxyz;976;53;400
+Diretor;Cintia;Souza;65432;9465;78
+Diretor;Marcelo;Andrade;1472;5556;60
+Presidente;Bianca;Silva;klmno;333;1
+Cliente;Maria;Silva;123;64;10
+Cliente;Joao;Lacerda;aeiou;112;8
+Cliente;Joaquim;Manuel;xpto;5;15
+Cliente;Alice;Matta;wxyz;45;19
+Cliente;Zelda;Abreu;senha123;94;5
+Cliente;Victoria;Santana;serratec;23;11
+Cliente;Julia;Souza;wasp;4;12
+Cliente;Eli;Pereira;rio2016;92;13
+Cliente;Julia;Souza;wasp;321;1001
+Cliente;Eli;Pereira;rio2016;9210;1002

@@ -1,6 +1,6 @@
 package pessoal;
 
-import enumerador.UsuarioEnum;
+import enums.UsuarioTipoEnum;
 
 public class Gerente extends Cliente implements Funcionario {
 		private int agenciaGerenciada;
@@ -9,8 +9,8 @@ public class Gerente extends Cliente implements Funcionario {
 			
 		}
 		
-		public Gerente(String senhaFuncionario, String cpfFuncionario, String nome, String sobrenome, UsuarioEnum cargoFuncionario,int numConta,int agencia) {
-			super(senhaFuncionario,cpfFuncionario,nome,sobrenome, cargoFuncionario,numConta);
+		public Gerente(String tipoUsuario, String nomeUsuario, String sobrenomeUsuario, String senhaUsuario, String cpfUsuario,int numConta,int agencia) {
+			super(tipoUsuario, nomeUsuario, sobrenomeUsuario, senhaUsuario, cpfUsuario,numConta);
 			this.agenciaGerenciada=agencia;
 		}
 		public int getAgenciaGerenciada() {
@@ -24,7 +24,7 @@ public class Gerente extends Cliente implements Funcionario {
 		public String toString() {
 			return "Gerente [agenciaGerenciada=" + agenciaGerenciada + ", senhaUsuario=" + senhaUsuario
 					+ ", cpfUsuario=" + cpfUsuario + ", nomeUsuario=" + nomeUsuario + ", sobrenomeUsuario="
-					+ sobrenomeUsuario + ", cargoUsuario=" + cargoUsuario + "]";
+					+ sobrenomeUsuario + ", tipoUsuario=" + tipoUsuario + "]";
 		}
 
 		public void relatorioGerente() {

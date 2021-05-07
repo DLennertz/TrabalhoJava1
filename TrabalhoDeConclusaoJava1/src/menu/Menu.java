@@ -2,12 +2,13 @@ package menu;
 
 import pessoal.Gerente;
 import java.util.Scanner;
-import enumerador.ContaEnum;
+
 import conta.Conta;
 import leitura.Leitura;
 import pessoal.Usuario;
 import conta.ContaCorrente;
 import conta.ContaPoupanca;
+import enums.ContaTipoEnum;
 
 public class Menu {
 	public int menuMovimentacaoConta(){
@@ -82,14 +83,14 @@ public class Menu {
 			case 2: switch(menuRelatorioCliente()) {
 					case 1:contaUsuario.imprimirSaldo();
 							break;
-					case 2: if(contaUsuario.getTipoConta()==ContaEnum.ContaCorrente) {
+					case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
 								((ContaCorrente)contaUsuario).getRelatorioTributacao();
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Corrente");
 							}
 							break;
-					case 3: if(contaUsuario.getTipoConta()==ContaEnum.ContaPoupanca) {
+					case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
 								((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
 							}
 							else
@@ -138,7 +139,7 @@ public class Menu {
 				case 1: contaUsuario.imprimirSaldo();
 					break;
 					
-				case 2: if(contaUsuario.getTipoConta()==ContaEnum.ContaCorrente) {
+				case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
 					((ContaCorrente)contaUsuario).getRelatorioTributacao();
 				}
 				else
@@ -146,7 +147,7 @@ public class Menu {
 				}
 					break;
 					
-				case 3: if(contaUsuario.getTipoConta()==ContaEnum.ContaPoupanca) {
+				case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
 					((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
 				}
 				else

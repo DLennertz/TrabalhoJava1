@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import conta.Conta;
 import conta.ContaCorrente;
-import enumerador.UsuarioEnum;
+import enums.UsuarioTipoEnum;
 
 public class Cliente extends Usuario{
 		
@@ -14,14 +14,14 @@ public class Cliente extends Usuario{
 			
 		}
 		
-		public Cliente(String senhaCliente, String cpfCliente, String nomeCliente, String sobrenomeCliente, UsuarioEnum cargo,int numConta) {
-			super(senhaCliente, cpfCliente, nomeCliente, sobrenomeCliente, cargo, numConta);
+		public Cliente(String tipoUsuario, String nomeUsuario, String sobrenomeUsuario, String senhaUsuario, String cpfUsuario,int numConta) {
+			super(tipoUsuario, nomeUsuario, sobrenomeUsuario, senhaUsuario, cpfUsuario,numConta);
 		}
 
 		@Override
 		public String toString() {
 			return "Cliente [senhaUsuario=" + senhaUsuario + ", cpfUsuario=" + cpfUsuario + ", nomeUsuario="
-					+ nomeUsuario + ", sobrenomeUsuario=" + sobrenomeUsuario + ", cargoUsuario=" + cargoUsuario + "]";
+					+ nomeUsuario + ", sobrenomeUsuario=" + sobrenomeUsuario + ", tipoUsuario=" + tipoUsuario + "]";
 		}
 		
 		

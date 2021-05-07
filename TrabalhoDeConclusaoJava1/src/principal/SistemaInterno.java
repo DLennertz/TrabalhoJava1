@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import conta.*;
-import enumerador.ContaEnum;
+import enums.ContaTipoEnum;
 import leitura.Leitura;
 import menu.Menu;
 import pessoal.Cliente;
@@ -48,25 +48,25 @@ public class SistemaInterno {
 		Map<Integer, Conta>	mapContas = new HashMap<>();
 		mapContas = Conta.getContas();
 		
-		if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaEnum.ContaCorrente){
+		if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaTipoEnum.CORRENTE.getTipo()){
 			ContaCorrente contaUsuario = new ContaCorrente();
 			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
 			
-			switch(usuario.getCargo()) {
-			case Cliente: 	menu.menuCliente(contaUsuario);
+			switch(usuario.getTipo()) {
+			case "Cliente": 	menu.menuCliente(contaUsuario);
 							break;
-			case Gerente: menu.menuGerente(contaUsuario,usuario);
+			case "Gerente": menu.menuGerente(contaUsuario,usuario);
 							break;
 			default: 		System.out.println("Erro");
 							break;
 			}
 		}
-		else if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaEnum.ContaPoupanca){
+		else if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaTipoEnum.POUPANCA.getTipo()){
 			ContaPoupanca contaUsuario = new ContaPoupanca();
 			contaUsuario = (ContaPoupanca) mapContas.get(usuario.getNumConta());
 			
-			switch(usuario.getCargo()) {
-			case Cliente: 	menu.menuCliente(contaUsuario);
+			switch(usuario.getTipo()) {
+			case "Cliente": 	menu.menuCliente(contaUsuario);
 							break;
 							
 			default: 		System.out.println("Erro");

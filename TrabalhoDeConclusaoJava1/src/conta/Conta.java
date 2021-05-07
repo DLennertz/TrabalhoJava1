@@ -8,25 +8,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import enumerador.ContaEnum;
+import enums.ContaTipoEnum;
 import leitura.Leitura;
 
 
 
 public abstract class Conta {
 		
+		protected String tipoConta;
+		protected int numConta;
 		protected String cpfTitular;
 		protected double saldo;
 		protected int agencia;
-		protected int numConta;
-		protected ContaEnum tipoConta;
 		
 		Leitura ler = new Leitura();
 		
 		public Conta(){
 		}
 		
-		public Conta(String cpfTitular, double saldo, int agencia,int numConta, ContaEnum tipo){
+		public Conta(String tipo,int numConta, String cpfTitular, double saldo, int agencia){
 			this.cpfTitular=cpfTitular;
 			this.saldo=saldo;
 			this.agencia=agencia;
@@ -38,7 +38,7 @@ public abstract class Conta {
 			return numConta;
 		}
 		
-		public ContaEnum getTipoConta() {
+		public String getTipoConta() {
 			return tipoConta;
 		}
 		public void setCPFTitular(String cpfTitular){
@@ -158,21 +158,21 @@ public abstract class Conta {
 		
 		public static Map<Integer, Conta> getContas(){
 			Map<Integer, Conta> contas = new HashMap<>();
-			contas.put(678,new ContaCorrente("265",55000,400,678,ContaEnum.ContaCorrente));
-			contas.put(53,new ContaCorrente("976",6000,200,53,ContaEnum.ContaCorrente));
-			contas.put(78,new ContaCorrente("9465",4000,500,78,ContaEnum.ContaCorrente));
-			contas.put(60,new ContaCorrente("5556",15500,200,60,ContaEnum.ContaCorrente));
-			contas.put(1,new ContaCorrente("333",4500,310,1,ContaEnum.ContaCorrente));
-			contas.put(10,new ContaCorrente("64",5500,400,10,ContaEnum.ContaCorrente));
-			contas.put(8,new ContaCorrente("112",6000,200,8,ContaEnum.ContaCorrente));
-			contas.put(15,new ContaCorrente("5",4000,500,15,ContaEnum.ContaCorrente));
-			contas.put(19,new ContaCorrente("45",15500,200,19,ContaEnum.ContaCorrente));
-			contas.put(5,new ContaCorrente("94",4500,310,5,ContaEnum.ContaCorrente));
-			contas.put(11,new ContaCorrente("23",500,100,11,ContaEnum.ContaCorrente));
-			contas.put(12,new ContaCorrente("4",4400,600,12,ContaEnum.ContaCorrente));
-			contas.put(13,new ContaCorrente("92",1100,510,13,ContaEnum.ContaCorrente));
-			contas.put(1001,new ContaPoupanca("321",4400,600,1001,ContaEnum.ContaPoupanca));
-			contas.put(1002,new ContaPoupanca("9210",1100,510,1002,ContaEnum.ContaPoupanca));
+			contas.put(678,new ContaCorrente("ContaCorrente",678,"265",55000,400));
+			contas.put(53,new ContaCorrente("ContaCorrente",53,"976",6000,200));
+			contas.put(78,new ContaCorrente("ContaCorrente",78,"9465",4000,500));
+			contas.put(60,new ContaCorrente("ContaCorrente",60,"5556",15500,200));
+			contas.put(1,new ContaCorrente("ContaCorrente",1,"333",4500,310));
+			contas.put(10,new ContaCorrente("ContaCorrente",10,"64",5500,400));
+			contas.put(8,new ContaCorrente("ContaCorrente",8,"112",6000,200));
+			contas.put(15,new ContaCorrente("ContaCorrente",15,"5",4000,500));
+			contas.put(19,new ContaCorrente("ContaCorrente",19,"45",15500,200));
+			contas.put(5,new ContaCorrente("ContaCorrente",5,"94",4500,310));
+			contas.put(11,new ContaCorrente("ContaCorrente",11,"23",500,100));
+			contas.put(12,new ContaCorrente("ContaCorrente",12,"4",4400,600));
+			contas.put(13,new ContaCorrente("ContaCorrente",13,"92",1100,510));
+			contas.put(1001,new ContaPoupanca("ContaPoupanca",1001,"321",4400,600));
+			contas.put(1002,new ContaPoupanca("ContaPoupanca",1002,"9210",1100,510));
 
 			return contas;
 		}

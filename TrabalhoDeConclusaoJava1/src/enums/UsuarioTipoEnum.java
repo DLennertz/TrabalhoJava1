@@ -3,8 +3,8 @@ package enums;
 public enum UsuarioTipoEnum {
 	CLIENTE("Cliente",1),
 	DIRETOR("Diretor",2),
-	GEREMTE("Gerente",3),
-	Presidente("Presidente",3);
+	GERENTE("Gerente",3),
+	PRESIDENTE("Presidente",3);
 	
 	private final String tipo;
 	private final int id;

@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import leituraEscrita.*;
 import enums.ContaTipoEnum;
 import enums.UsuarioTipoEnum;
 import leitura.Leitura;
+import leituraEscrita.LeArquivo;
 import pessoal.Cliente;
 import pessoal.Diretor;
+import pessoal.Usuario;
+
 import java.io.FileNotFoundException;
 
 
@@ -28,7 +31,7 @@ public abstract class Conta {
 		protected double saldo;
 		protected int agencia;
 		
-		Leitura ler = new Leitura();
+		static Leitura ler = new Leitura();
 		
 		public Conta(){
 		}
@@ -112,7 +115,7 @@ public abstract class Conta {
 			}
 		}
 		
-		public void processoSaque() {
+		public void processoSaque(Conta contaUsuario, Usuario usuario) throws IOException {
 			double valorSaque;
 			
 			System.out.println("Insira o valor do saque:");
@@ -128,9 +131,10 @@ public abstract class Conta {
 					valorSaque = ler.lerDouble();
 				}
 			}
+			EscreveArquivo.registraSaque(contaUsuario, usuario,valorSaque);
 		}
 		
-		public void processoDeposito() {
+		public void processoDeposito(Conta contaUsuario, Usuario usuario) throws IOException {
 			double valorDeposito;
 		
 			System.out.println("Insira o valor do depósito:");
@@ -139,6 +143,8 @@ public abstract class Conta {
 				System.out.println("Erro ao realizar depósito. Insira novo valor");
 				valorDeposito = ler.lerDouble();
 			}
+			EscreveArquivo.registraDeposito(contaUsuario, usuario,valorDeposito);
+			
 		}
 		
 		public void processoTransferencia() throws IOException {
@@ -163,36 +169,7 @@ public abstract class Conta {
 		@Override
 		public abstract String toString();
 		
-		public static Map<Integer, Conta> getContas() throws IOException{
-			Map<Integer, Conta> contas = new HashMap<>();
-			try {
-				BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
-				String linha = "";
-				
-				while (true) {
-					linha = buffRead.readLine();
-					if (linha != null) {
-						String[] pp = linha.split(";");
-						if(pp[0].equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
-							ContaCorrente cc = new ContaCorrente(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
-							contas.put(Integer.parseInt(pp[1]), cc);
-						}
-						else if(pp[0].equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
-							ContaPoupanca cp = new ContaPoupanca(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
-							contas.put(Integer.parseInt(pp[1]), cp);
-						}
-						
-					} else
-						break;
-				}
-				buffRead.close();
-			}
-			catch (FileNotFoundException e) {
-				System.out.println("Arquivo não encontrado no path informado: ./temp/Repositorio.txt");
-			}
-
-			return contas;
-		}
+		
 		
 		public void imprimirSaldo() {
 			LocalDateTime hoje = LocalDateTime.now();
@@ -211,7 +188,7 @@ public abstract class Conta {
 		public Conta retornaConta() throws IOException {
 			int numContaDestino;
 			Map<Integer,Conta> contas = new HashMap<>();
-			contas = getContas();
+			contas = LeArquivo.leArquivoDevolveListaContas();
 			numContaDestino = ler.lerInteiro();
 			return contas.get(numContaDestino);
 		}

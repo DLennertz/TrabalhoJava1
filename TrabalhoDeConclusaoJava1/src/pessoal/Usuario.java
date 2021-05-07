@@ -47,39 +47,9 @@ public class Usuario {
 	public String getTipo() {
 		return tipoUsuario;
 	}
-	public static Map <String, Usuario> getUsuarios() throws IOException{
-		Map<String, Usuario> mapUsuario= new HashMap<>();
-		
-		try {
-			BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
-			String linha = "";
-			
-			while (true) {
-				linha = buffRead.readLine();
-				if (linha != null) {
-					String[] pp = linha.split(";");
-					 if(pp[0].equalsIgnoreCase(UsuarioTipoEnum.DIRETOR.getTipo())) {
-						 //String tipoUsuario, String nomeUsuario, String sobrenomeUsuario, String senhaUsuario, String cpfUsuario,int numConta
-						Diretor d = new Diretor(pp[0], pp[1], (pp[2]), pp[3], pp[4], Integer.parseInt(pp[5]));
-						mapUsuario.put(pp[4], d);
-					}
-					else if(pp[0].equalsIgnoreCase(UsuarioTipoEnum.CLIENTE.getTipo())) {
-						//String tipoUsuario, String nomeUsuario, String sobrenomeUsuario, String senhaUsuario, String cpfUsuario,int numConta
-						Cliente cli = new Cliente(pp[0], pp[1], (pp[2]), pp[3], pp[4], Integer.parseInt(pp[5]));
-						//String tipo, String nome, Integer id, String cpf, String senha, Integer agencia, Integer numeroConta
-						mapUsuario.put(pp[4], cli);
-						
-					}
-					
-				} else
-					break;
-			}
-			buffRead.close();
-		}
-		catch (FileNotFoundException e) {
-			System.out.println("Arquivo não encontrado no path informado: ./temp/Repositorio.txt");
-		}
-		 
-		return mapUsuario;
+	
+	public String getNome() {
+		return nomeUsuario;
 	}
+	
 }

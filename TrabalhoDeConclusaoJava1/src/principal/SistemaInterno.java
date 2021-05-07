@@ -7,6 +7,7 @@ import java.util.Scanner;
 import conta.*;
 import enums.ContaTipoEnum;
 import leitura.Leitura;
+import leituraEscrita.LeArquivo;
 import menu.Menu;
 import pessoal.Cliente;
 import pessoal.Funcionario;
@@ -24,8 +25,7 @@ public class SistemaInterno {
 		Usuario usuario = new Usuario();
 		
 		Map<String, Usuario> mapUsuario = new HashMap<>();
-		mapUsuario = Usuario.getUsuarios();
-		
+		mapUsuario = LeArquivo.leArquivoDevolveListaUsuarios();
 		//Log in
 		System.out.println("Digite seu CPF : ");
 		cpf= sc.next();
@@ -47,17 +47,19 @@ public class SistemaInterno {
 		}
 	
 		Map<Integer, Conta>	mapContas = new HashMap<>();
-		mapContas = Conta.getContas();
+		mapContas = LeArquivo.leArquivoDevolveListaContas();
 		
 		if((mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())){
 			ContaCorrente contaUsuario = new ContaCorrente();
 			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getTipo()) {
-			case "Cliente": 	menu.menuCliente(contaUsuario);
+			case "Cliente": 	menu.menuCliente(contaUsuario,usuario);
 							break;
 			case "Gerente": menu.menuGerente(contaUsuario,usuario);
 							break;
+			case "Diretor": break;
+			case "Presidente":  break;
 			default: 		System.out.println("Erro");
 							break;
 			}
@@ -67,7 +69,7 @@ public class SistemaInterno {
 			contaUsuario = (ContaPoupanca) mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getTipo()) {
-			case "Cliente": 	menu.menuCliente(contaUsuario);
+			case "Cliente": 	menu.menuCliente(contaUsuario,usuario);
 							break;
 							
 			default: 		System.out.println("Erro");

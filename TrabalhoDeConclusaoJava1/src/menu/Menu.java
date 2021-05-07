@@ -62,7 +62,7 @@ public class Menu {
 		return opcao;
 	}
 	
-	public void menuCliente(Conta contaUsuario) throws IOException {
+	public void menuCliente(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
 		boolean continuar = true;
@@ -72,9 +72,9 @@ public class Menu {
 			
 			switch(opcao) {
 			case 1:	switch(menuMovimentacaoConta()) {
-					case 1: contaUsuario.processoSaque();
+					case 1: contaUsuario.processoSaque(contaUsuario,usuario);
 							break;
-					case 2: contaUsuario.processoDeposito();
+					case 2: contaUsuario.processoDeposito(contaUsuario,usuario);
 							break;
 					case 3: contaUsuario.processoTransferencia();
 							break;
@@ -122,10 +122,10 @@ public class Menu {
 			
 			switch(opcao) {
 			case 1: switch (menuMovimentacaoConta()) {
-				case 1: contaUsuario.processoSaque();
+				case 1: contaUsuario.processoSaque(contaUsuario,usuario);
 					break;
 				
-				case 2: contaUsuario.processoDeposito();
+				case 2: contaUsuario.processoDeposito(contaUsuario,usuario);
 					break;
 				
 				case 3: contaUsuario.processoTransferencia();

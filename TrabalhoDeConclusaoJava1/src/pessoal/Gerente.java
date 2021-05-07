@@ -1,6 +1,15 @@
 package pessoal;
 
+import java.awt.List;
+import java.io.IOException;
+import java.util.Map;
+
+import conta.Conta;
+
+import java.util.HashMap;
+
 import enums.UsuarioTipoEnum;
+import leituraEscrita.LeArquivo;
 
 public class Gerente extends Cliente implements Funcionario {
 		private int agenciaGerenciada;
@@ -27,7 +36,11 @@ public class Gerente extends Cliente implements Funcionario {
 					+ sobrenomeUsuario + ", tipoUsuario=" + tipoUsuario + "]";
 		}
 
-		public void relatorioGerente() {
-			System.out.println("ENTROU NA FUNÇAO!");
+		public void relatorioGerente() throws IOException {
+			Map<Integer,Conta> lista = new HashMap<>();
+			
+			lista = LeArquivo.listaContaGerente(this.agenciaGerenciada);
+			System.out.println("RELATÓRIO N# DE CONTAS NA AGÊNCIA "+this.agenciaGerenciada);
+			System.out.println("N# DE CONTAS EXISTENTES : "+ lista.size());
 		}
 }

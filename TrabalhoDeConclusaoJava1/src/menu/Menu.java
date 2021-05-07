@@ -76,7 +76,7 @@ public class Menu {
 							break;
 					case 2: contaUsuario.processoDeposito(contaUsuario,usuario);
 							break;
-					case 3: contaUsuario.processoTransferencia();
+					case 3: contaUsuario.processoTransferencia(contaUsuario,usuario);
 							break;
 					default: System.out.println("Opção invalida");
 			        		break;
@@ -85,14 +85,14 @@ public class Menu {
 			case 2: switch(menuRelatorioCliente()) {
 					case 1:contaUsuario.imprimirSaldo();
 							break;
-					case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
-								((ContaCorrente)contaUsuario).getRelatorioTributacao();
+					case 2: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
+								((ContaCorrente)contaUsuario).relatorioTributacao();
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Corrente");
 							}
 							break;
-					case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
+					case 3: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
 								((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
 							}
 							else
@@ -121,60 +121,45 @@ public class Menu {
 			opcao = sc.nextInt();
 			
 			switch(opcao) {
-			case 1: switch (menuMovimentacaoConta()) {
-				case 1: contaUsuario.processoSaque(contaUsuario,usuario);
-					break;
-				
-				case 2: contaUsuario.processoDeposito(contaUsuario,usuario);
-					break;
-				
-				case 3: contaUsuario.processoTransferencia();
-					break;
+				case 1: switch (menuMovimentacaoConta()) {
+							case 1: contaUsuario.processoSaque(contaUsuario,usuario);
+									break;
+							case 2: contaUsuario.processoDeposito(contaUsuario,usuario);
+									break;
+							case 3: contaUsuario.processoTransferencia(contaUsuario,usuario);
+									break;
+							default:System.out.println("Opção inválida!");
+									break;
+						}
+						break;
+				case 2: switch (menuRelatorioGerente()) {
+							case 1: contaUsuario.imprimirSaldo();
+									break;
+							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
+										((ContaCorrente)contaUsuario).relatorioTributacao();
+									}
+									else{	
+										System.out.println("A conta não é do tipo Conta Corrente");
+									}
+									break;
 					
-				default: System.out.println("Opção inválida!");
-					break;
-				
-			}
-			break;
-			
-			case 2: switch (menuRelatorioGerente()) {
-				case 1: contaUsuario.imprimirSaldo();
-					break;
-					
-				case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
-					((ContaCorrente)contaUsuario).getRelatorioTributacao();
-				}
-				else
-				{	System.out.println("A conta não é do tipo Conta Corrente");
-				}
-					break;
-					
-				case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
-					((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
-				}
-				else
-				{	System.out.println("A conta não é do tipo Conta Poupança");
-				}
-					break;
-				
-				case 4: ((Gerente)usuario).relatorioGerente();
-					break;
-			}
-				
-				break;
-			
-			case 3: continuar = false;
-				break;
-				
-			default: 
-				System.out.println("Opção inválida.");
-				break;
-			
-			}
-			
+							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
+										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
+									}
+									else{	
+										System.out.println("A conta não é do tipo Conta Poupança");
+									}
+									break;
+							case 4: ((Gerente)usuario).relatorioGerente();
+									break;
+						}
+						break;
+				case 3: continuar = false;
+						break;
+				default:System.out.println("Opção inválida.");
+						break;
+			}	
 		}
 		while(continuar);
-			
-			
 	}
 }

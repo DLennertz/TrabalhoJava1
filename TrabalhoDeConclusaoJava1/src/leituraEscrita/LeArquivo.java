@@ -93,4 +93,35 @@ public class LeArquivo {
 		 
 		return mapUsuario;
 	}
+	
+	public static Map<Integer, Conta> listaContaGerente(int agenciaGerenciada) throws IOException{
+		Map<Integer, Conta> contas = new HashMap<>();
+		try {
+			BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
+			String linha = "";
+			
+			while (true) {
+				linha = buffRead.readLine();
+				if (linha != null) {
+					String[] pp = linha.split(";");
+					if(pp[0].equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())&& Integer.parseInt(pp[4])==agenciaGerenciada) {
+						ContaCorrente cc = new ContaCorrente(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
+						contas.put(Integer.parseInt(pp[1]), cc);
+					}
+					else if(pp[0].equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo()) && Integer.parseInt(pp[4])==agenciaGerenciada) {
+						ContaPoupanca cp = new ContaPoupanca(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
+						contas.put(Integer.parseInt(pp[1]), cp);
+					}
+					
+				} else
+					break;
+			}
+			buffRead.close();
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("Arquivo não encontrado no path informado: ./temp/Repositorio.txt");
+		}
+
+		return contas;
+	}
 }

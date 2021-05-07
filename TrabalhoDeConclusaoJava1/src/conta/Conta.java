@@ -30,19 +30,36 @@ public abstract class Conta {
 		protected String cpfTitular;
 		protected double saldo;
 		protected int agencia;
-		
+		protected int numeroDeSaques;
+		protected int numeroDeDepositos;
+		protected int numeroDeTransferencias;
 		static Leitura ler = new Leitura();
 		
-		public Conta(){
+		public Conta(){     
+			numeroDeSaques=0;
+		    numeroDeDepositos=0;
+		    numeroDeTransferencias=0;
 		}
-		
 		public Conta(String tipo,int numConta, String cpfTitular, double saldo, int agencia){
 			this.cpfTitular=cpfTitular;
 			this.saldo=saldo;
 			this.agencia=agencia;
 			this.numConta=numConta;	
 			this.tipoConta=tipo;
+			numeroDeSaques=0;
+		    numeroDeDepositos=0;
+		    numeroDeTransferencias=0;
 		}
+		
+		public void incrementaNumeroDeSaques() {
+			numeroDeSaques++;
+		}
+	    public void incrementaNumeroDeDepositos(){
+	    	numeroDeDepositos++;
+	    }
+	    public void incrementaNumeroDeTransferencias(){
+	    	numeroDeTransferencias++;
+	    }
 
 		public int getNumConta() {
 			return numConta;
@@ -60,8 +77,8 @@ public abstract class Conta {
 		}
 		
 		public boolean deposita(double valor) {
-			if(valor > 0) {
-				this.saldo = this.saldo + valor;
+			if(valor > 0.1) {
+				this.saldo = this.saldo + valor- 0.10;
 				return true;
 			}
 			else
@@ -85,7 +102,7 @@ public abstract class Conta {
 		public boolean saque(double valor) {
 			
 				if(saldo>=valor && valor > 0) {
-					this.saldo = this.saldo - valor;
+					this.saldo = this.saldo - valor - 0.10;
 					return true;
 				}
 				else if(valor <= 0){	
@@ -101,8 +118,8 @@ public abstract class Conta {
 		
 		public boolean transfere(Conta destino, double valor) {
 			if(valor<=this.saldo && valor > 0) {
-				this.saque(valor);
-				destino.deposita(valor);
+				this.saque(valor+0.10);
+				destino.deposita(valor+0.1);
 			return true;
 			}
 			else if(valor <= 0) {
@@ -132,6 +149,7 @@ public abstract class Conta {
 				}
 			}
 			EscreveArquivo.registraSaque(contaUsuario, usuario,valorSaque);
+			this.incrementaNumeroDeSaques();
 		}
 		
 		public void processoDeposito(Conta contaUsuario, Usuario usuario) throws IOException {
@@ -144,10 +162,11 @@ public abstract class Conta {
 				valorDeposito = ler.lerDouble();
 			}
 			EscreveArquivo.registraDeposito(contaUsuario, usuario,valorDeposito);
+			this.incrementaNumeroDeDepositos();
 			
 		}
 		
-		public void processoTransferencia() throws IOException {
+		public void processoTransferencia(Conta contaUsuario, Usuario usuario) throws IOException {
 			
 			double valorTransferencia;
 			System.out.println("Insira o número da conta de destino: ");
@@ -163,7 +182,8 @@ public abstract class Conta {
 			valorTransferencia = ler.lerDouble();
 		
 			this.transfere(contaDestino, valorTransferencia);
-			System.out.println(contaDestino);
+			EscreveArquivo.registraTransferencia(contaUsuario, contaDestino, usuario, valorTransferencia);
+			this.incrementaNumeroDeTransferencias();
 		}
 
 		@Override

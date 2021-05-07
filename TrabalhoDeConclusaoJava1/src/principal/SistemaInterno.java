@@ -81,10 +81,6 @@ public class SistemaInterno {
 		}
 		
 		
-		System.out.println(mapContas.get(12));
-		System.out.println(mapContas.get(10));
-		//Menu Cliente
-		
 		}
 	}	
 

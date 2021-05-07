@@ -83,17 +83,6 @@ public class SistemaInterno {
 		//Menu Cliente
 		
 		}
-
-	private static boolean ContaCorrente(boolean b) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private static boolean ContaPoupanca(boolean b) {
-		// TODO Auto-generated method stub
-		return false;
-	}	
-		
 	}	
 
 

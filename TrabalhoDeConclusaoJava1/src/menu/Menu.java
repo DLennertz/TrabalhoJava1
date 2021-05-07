@@ -1,6 +1,8 @@
 package menu;
 
 import pessoal.Gerente;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 import conta.Conta;
@@ -60,7 +62,7 @@ public class Menu {
 		return opcao;
 	}
 	
-	public void menuCliente(Conta contaUsuario) {
+	public void menuCliente(Conta contaUsuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
 		boolean continuar = true;
@@ -110,7 +112,7 @@ public class Menu {
 	}
 		
 	
-	public void menuGerente(Conta contaUsuario, Usuario usuario) {
+	public void menuGerente(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;

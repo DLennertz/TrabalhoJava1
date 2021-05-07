@@ -1,5 +1,8 @@
 package conta;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,7 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 import enums.ContaTipoEnum;
+import enums.UsuarioTipoEnum;
 import leitura.Leitura;
+import pessoal.Cliente;
+import pessoal.Diretor;
+import java.io.FileNotFoundException;
 
 
 
@@ -134,7 +141,7 @@ public abstract class Conta {
 			}
 		}
 		
-		public void processoTransferencia() {
+		public void processoTransferencia() throws IOException {
 			
 			double valorTransferencia;
 			System.out.println("Insira o número da conta de destino: ");
@@ -156,23 +163,33 @@ public abstract class Conta {
 		@Override
 		public abstract String toString();
 		
-		public static Map<Integer, Conta> getContas(){
+		public static Map<Integer, Conta> getContas() throws IOException{
 			Map<Integer, Conta> contas = new HashMap<>();
-			contas.put(678,new ContaCorrente("ContaCorrente",678,"265",55000,400));
-			contas.put(53,new ContaCorrente("ContaCorrente",53,"976",6000,200));
-			contas.put(78,new ContaCorrente("ContaCorrente",78,"9465",4000,500));
-			contas.put(60,new ContaCorrente("ContaCorrente",60,"5556",15500,200));
-			contas.put(1,new ContaCorrente("ContaCorrente",1,"333",4500,310));
-			contas.put(10,new ContaCorrente("ContaCorrente",10,"64",5500,400));
-			contas.put(8,new ContaCorrente("ContaCorrente",8,"112",6000,200));
-			contas.put(15,new ContaCorrente("ContaCorrente",15,"5",4000,500));
-			contas.put(19,new ContaCorrente("ContaCorrente",19,"45",15500,200));
-			contas.put(5,new ContaCorrente("ContaCorrente",5,"94",4500,310));
-			contas.put(11,new ContaCorrente("ContaCorrente",11,"23",500,100));
-			contas.put(12,new ContaCorrente("ContaCorrente",12,"4",4400,600));
-			contas.put(13,new ContaCorrente("ContaCorrente",13,"92",1100,510));
-			contas.put(1001,new ContaPoupanca("ContaPoupanca",1001,"321",4400,600));
-			contas.put(1002,new ContaPoupanca("ContaPoupanca",1002,"9210",1100,510));
+			try {
+				BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
+				String linha = "";
+				
+				while (true) {
+					linha = buffRead.readLine();
+					if (linha != null) {
+						String[] pp = linha.split(";");
+						if(pp[0].equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
+							ContaCorrente cc = new ContaCorrente(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
+							contas.put(Integer.parseInt(pp[1]), cc);
+						}
+						else if(pp[0].equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
+							ContaPoupanca cp = new ContaPoupanca(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
+							contas.put(Integer.parseInt(pp[1]), cp);
+						}
+						
+					} else
+						break;
+				}
+				buffRead.close();
+			}
+			catch (FileNotFoundException e) {
+				System.out.println("Arquivo não encontrado no path informado: ./temp/Repositorio.txt");
+			}
 
 			return contas;
 		}
@@ -191,7 +208,7 @@ public abstract class Conta {
 			System.out.println("########################");
 		}
 		
-		public Conta retornaConta() {
+		public Conta retornaConta() throws IOException {
 			int numContaDestino;
 			Map<Integer,Conta> contas = new HashMap<>();
 			contas = getContas();

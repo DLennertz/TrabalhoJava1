@@ -1,5 +1,6 @@
 package principal;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -16,7 +17,7 @@ public class SistemaInterno {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		String senha, cpf;
@@ -48,7 +49,7 @@ public class SistemaInterno {
 		Map<Integer, Conta>	mapContas = new HashMap<>();
 		mapContas = Conta.getContas();
 		
-		if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaTipoEnum.CORRENTE.getTipo()){
+		if((mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())){
 			ContaCorrente contaUsuario = new ContaCorrente();
 			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
 			
@@ -61,7 +62,7 @@ public class SistemaInterno {
 							break;
 			}
 		}
-		else if(mapContas.get(usuario.getNumConta()).getTipoConta() == ContaTipoEnum.POUPANCA.getTipo()){
+		else if((mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase( ContaTipoEnum.POUPANCA.getTipo())){
 			ContaPoupanca contaUsuario = new ContaPoupanca();
 			contaUsuario = (ContaPoupanca) mapContas.get(usuario.getNumConta());
 			

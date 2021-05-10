@@ -22,7 +22,9 @@ public class SistemaInterno {
 	
 		LeArquivo.leArquivoUsuario();
 		//Log in
-		System.out.println("Digite seu CPF : ");
+		System.out.println(" ____________________________");
+		System.out.println("|                            |");
+		System.out.print("|Digite seu CPF :");
 		cpf= sc.next();
 		
 		usuario = BancoDados.mapUsuario.get(cpf);
@@ -32,15 +34,15 @@ public class SistemaInterno {
 			cpf= sc.next();
 			usuario = BancoDados.mapUsuario.get(cpf);
 		}
-		System.out.println(usuario);
-		System.out.println("Digite sua senha: ");
+		System.out.print("|Digite sua senha:");
 		senha= sc.next();
 
 		while(!usuario.getSenhaUsuario().equals(senha)) {
 			System.out.println("Senha Incorreta. Insira nova senha");
 			senha= sc.next();
 		}
-	
+		System.out.println("|____________________________|\n");
+		
 		LeArquivo.leArquivoDevolveListaContas();
 		
 		if((BancoDados.mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())){

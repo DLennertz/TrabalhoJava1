@@ -7,9 +7,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import bancoDeDados.BancoDados;
 import leituraEscrita.*;
 import enums.ContaTipoEnum;
 import enums.UsuarioTipoEnum;
@@ -117,7 +118,7 @@ public abstract class Conta {
 		}
 		
 		public boolean transfere(Conta destino, double valor) {
-			if(valor<=this.saldo && valor > 0) {
+			if(valor<=this.saldo+0.1 && valor > 0) {
 				this.saque(valor+0.10);
 				destino.deposita(valor+0.1);
 			return true;
@@ -183,6 +184,8 @@ public abstract class Conta {
 		
 			this.transfere(contaDestino, valorTransferencia);
 			EscreveArquivo.registraTransferencia(contaUsuario, contaDestino, usuario, valorTransferencia);
+			System.out.println("Saldo do remetente :R$" + contaUsuario.getSaldo());
+			System.out.println("Saldo do destinatário :R$" + contaDestino.getSaldo());
 			this.incrementaNumeroDeTransferencias();
 		}
 
@@ -201,16 +204,14 @@ public abstract class Conta {
 			System.out.println("Data : "+ hojeformatado);
 			System.out.println("Conta : "+ getNumConta());
 			System.out.println("Agencia: " + getAgencia());
-			System.out.println("Saldo : " + getSaldo());
-			System.out.println("########################");
+			System.out.printf("Saldo : R$%.2f", getSaldo());
+			System.out.println("\n########################\n");
 		}
 		
 		public Conta retornaConta() throws IOException {
 			int numContaDestino;
-			Map<Integer,Conta> contas = new HashMap<>();
-			contas = LeArquivo.leArquivoDevolveListaContas();
 			numContaDestino = ler.lerInteiro();
-			return contas.get(numContaDestino);
+			return BancoDados.mapContas.get(numContaDestino);
 		}
 		
 }

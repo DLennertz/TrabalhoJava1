@@ -1,9 +1,10 @@
 package principal;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import bancoDeDados.BancoDados;
 import conta.*;
 import enums.ContaTipoEnum;
 import leitura.Leitura;
@@ -17,25 +18,24 @@ import pessoal.Gerente;
 public class SistemaInterno {
 	
 	
-	
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		String senha, cpf;
 		Usuario usuario = new Usuario();
 		
-		Map<String, Usuario> mapUsuario = new HashMap<>();
-		mapUsuario = LeArquivo.leArquivoDevolveListaUsuarios();
+	
+		LeArquivo.leArquivoUsuario();
 		//Log in
 		System.out.println("Digite seu CPF : ");
 		cpf= sc.next();
 		
-		usuario = mapUsuario.get(cpf);
+		usuario = BancoDados.mapUsuario.get(cpf);
 		
 		while(usuario==null) {
 			System.out.println("CPF não encontrado. Insira novo CPF");
 			cpf= sc.next();
-			usuario = mapUsuario.get(cpf);
+			usuario = BancoDados.mapUsuario.get(cpf);
 		}
 		System.out.println(usuario);
 		System.out.println("Digite sua senha: ");
@@ -46,32 +46,33 @@ public class SistemaInterno {
 			senha= sc.next();
 		}
 	
-		Map<Integer, Conta>	mapContas = new HashMap<>();
-		mapContas = LeArquivo.leArquivoDevolveListaContas();
+		LeArquivo.leArquivoDevolveListaContas();
 		
-		if((mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())){
+		if((BancoDados.mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())){
 			ContaCorrente contaUsuario = new ContaCorrente();
-			contaUsuario =(ContaCorrente) mapContas.get(usuario.getNumConta());
+			contaUsuario =(ContaCorrente) BancoDados.mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getTipo()) {
 			case "Cliente": 	menu.menuCliente(contaUsuario,usuario);
 							break;
 			case "Gerente": menu.menuGerente(contaUsuario,usuario);
 							break;
-			case "Diretor": break;
+			case "Diretor": menu.menuDiretor(contaUsuario,usuario);
+							break;
 			case "Presidente":  break;
 			default: 		System.out.println("Erro");
 							break;
 			}
 		}
-		else if((mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase( ContaTipoEnum.POUPANCA.getTipo())){
+		else if((BancoDados.mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase( ContaTipoEnum.POUPANCA.getTipo())){
 			ContaPoupanca contaUsuario = new ContaPoupanca();
-			contaUsuario = (ContaPoupanca) mapContas.get(usuario.getNumConta());
+			contaUsuario = (ContaPoupanca) BancoDados.mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getTipo()) {
-			case "Cliente": 	menu.menuCliente(contaUsuario,usuario);
+			case "Cliente": menu.menuCliente(contaUsuario,usuario);
 							break;
-							
+			case "Gerente": menu.menuGerente(contaUsuario,usuario);
+							break;			
 			default: 		System.out.println("Erro");
 							break;
 			}

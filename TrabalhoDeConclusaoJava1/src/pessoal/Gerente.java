@@ -6,6 +6,7 @@ import java.util.Map;
 
 import conta.Conta;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import enums.UsuarioTipoEnum;
@@ -37,10 +38,15 @@ public class Gerente extends Cliente implements Funcionario {
 		}
 
 		public void relatorioGerente() throws IOException {
-			Map<Integer,Conta> lista = new HashMap<>();
+			ArrayList<Conta> lista = new ArrayList<Conta>();
 			
 			lista = LeArquivo.listaContaGerente(this.agenciaGerenciada);
 			System.out.println("RELATÓRIO N# DE CONTAS NA AGÊNCIA "+this.agenciaGerenciada);
-			System.out.println("N# DE CONTAS EXISTENTES : "+ lista.size());
+			System.out.print("CONTAS EXISTENTES NA AGÊNCIA: ");
+			for(Conta c : lista) {
+				if(c.getAgencia() == this.agenciaGerenciada) {
+					System.out.print(c.getNumConta() + " / ");
+				}
+			}
 		}
 }

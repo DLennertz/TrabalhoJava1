@@ -55,7 +55,6 @@ public class LeArquivo {
 	}
 	
 	public static void leArquivoUsuario() throws IOException{
-		Map<String, Usuario> mapUsuario= new HashMap<>();
 		
 		try {
 			BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
@@ -127,8 +126,8 @@ public class LeArquivo {
 		return contas;
 	}
 	
-	public static ArrayList<Cliente> listaClientes() throws IOException{
-		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	public static ArrayList<Usuario> listaClientes() throws IOException{
+		ArrayList<Usuario> clientes = new ArrayList<Usuario>();
 		
 		try {
 			BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
@@ -168,5 +167,36 @@ public class LeArquivo {
 		}
 
 		return clientes;
+	}
+	
+	public static ArrayList<Conta> listaContas() throws IOException{
+		ArrayList<Conta> contas = new ArrayList<Conta>();
+		try {
+			BufferedReader buffRead = new BufferedReader(new FileReader("./temp/Repositorio.txt"));
+			String linha = "";
+			
+			while (true) {
+				linha = buffRead.readLine();
+				if (linha != null) {
+					String[] pp = linha.split(";");
+					if(pp[0].equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
+						ContaCorrente cc = new ContaCorrente(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
+						contas.add(cc);
+					}
+					else if(pp[0].equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
+						ContaPoupanca cp = new ContaPoupanca(pp[0], Integer.parseInt(pp[1]), (pp[2]), Double.parseDouble(pp[3]), Integer.parseInt(pp[4]));
+						contas.add(cp);
+					}
+					
+				} else
+					break;
+			}
+			buffRead.close();
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("Arquivo não encontrado no path informado: ./temp/Repositorio.txt");
+		}
+
+		return contas;
 	}
 }

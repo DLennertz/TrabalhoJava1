@@ -5,16 +5,22 @@ import java.util.Scanner;
 public class Leitura {
 	public static String lerString() {
 		Scanner ler = new Scanner(System.in);
-		return ler.next();
+		String x =ler.next();
+		ler.close();
+		return x;
 	}
 	
 	public int lerInteiro() {
 		Scanner ler = new Scanner(System.in);
-		return ler.nextInt();
+		Integer x = ler.nextInt();
+		ler.close();
+		return x;
 	}
 	
 	public double lerDouble() {
 		Scanner ler = new Scanner(System.in);
-		return ler.nextDouble();
+		double x =ler.nextDouble();
+		ler.close();
+		return x;
 	}
 }

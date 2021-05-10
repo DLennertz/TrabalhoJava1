@@ -1,18 +1,6 @@
 package pessoal;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import conta.ContaCorrente;
-import conta.ContaPoupanca;
-import enums.ContaTipoEnum;
-import enums.UsuarioTipoEnum;
-
-public class Usuario {
+public class Usuario  implements Comparable<Usuario>{
 	protected String tipoUsuario;
 	protected String nomeUsuario;
 	protected String sobrenomeUsuario;
@@ -51,5 +39,10 @@ public class Usuario {
 	public String getNome() {
 		return nomeUsuario;
 	}
-	
+
+	@Override
+	public int compareTo(Usuario o) {
+		return this.nomeUsuario.compareTo(o.nomeUsuario);
+	}
+
 }

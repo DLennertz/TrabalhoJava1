@@ -1,15 +1,9 @@
 package pessoal;
 
-import java.awt.List;
 import java.io.IOException;
-import java.util.Map;
-
 import conta.Conta;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import enums.UsuarioTipoEnum;
 import leituraEscrita.LeArquivo;
 
 public class Gerente extends Cliente implements Funcionario {

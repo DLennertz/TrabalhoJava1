@@ -1,6 +1,7 @@
 package menu;
 
 import pessoal.Gerente;
+import pessoal.Presidente;
 import pessoal.Diretor;
 import java.io.IOException;
 import java.util.Scanner;
@@ -79,6 +80,24 @@ public class Menu {
 		return opcao;
 	}
 	
+	public int menuRelatorioPresidente() {
+		int opcao;
+		Leitura ler = new Leitura();
+		System.out.println("Escolha qual opção você deseja: ");
+		
+		System.out.println("1- Saldo");
+		System.out.println("2- Relatório de tributação da conta corrente");
+		System.out.println("3 - Relatório de Rendimento da poupança");
+		System.out.println("4 - Relatório com as informações dos clientes (Nome CPF Agência)");
+		System.out.println("5 - Relatório com o valor de capital do banco");
+		opcao = ler.lerInteiro();
+		while(opcao < 1 || opcao > 5) {
+			System.out.println("Opção invalida. Escolha uma opção novamente");
+			opcao = ler.lerInteiro();
+		}
+		return opcao;
+	}
+	
 	public void menuCliente(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
@@ -127,6 +146,7 @@ public class Menu {
 			}
 		}
 		while(continuar);
+		sc.close();
 	}
 		
 	
@@ -179,6 +199,7 @@ public class Menu {
 			}	
 		}
 		while(continuar);
+		sc.close();
 	}
 	
 	
@@ -231,5 +252,60 @@ public class Menu {
 			}	
 		}
 		while(continuar);
+		sc.close();
+	}
+	
+	public void menuPresidente(Conta contaUsuario, Usuario usuario) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		int opcao; 
+		boolean continuar = true;
+		do {
+			System.out.println("1- Movimentação da conta\n 2- Relatórios \n 3- Sair");
+			opcao = sc.nextInt();
+			
+			switch(opcao) {
+				case 1: switch (menuMovimentacaoConta()) {
+							case 1: contaUsuario.processoSaque(contaUsuario,usuario);
+									break;
+							case 2: contaUsuario.processoDeposito(contaUsuario,usuario);
+									break;
+							case 3: contaUsuario.processoTransferencia(contaUsuario,usuario);
+									break;
+							default:System.out.println("Opção inválida!");
+									break;
+						}
+						break;
+				case 2: switch (menuRelatorioPresidente()) {
+							case 1: contaUsuario.imprimirSaldo();
+									break;
+							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
+										((ContaCorrente)contaUsuario).relatorioTributacao();
+									}
+									else{	
+										System.out.println("A conta não é do tipo Conta Corrente");
+									}
+									break;
+					
+							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
+										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
+									}
+									else{	
+										System.out.println("A conta não é do tipo Conta Poupança");
+									}
+									break;
+							case 4: ((Presidente)usuario).relatorioPresidente();
+									break;
+							case 5:	((Presidente)usuario).relatorioCapitalPresidente();
+									break;
+						}
+						break;
+				case 3: continuar = false;
+						break;
+				default:System.out.println("Opção inválida.");
+						break;
+			}	
+		}
+		while(continuar);
+		sc.close();
 	}
 }

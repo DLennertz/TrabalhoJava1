@@ -1,26 +1,12 @@
 package conta;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import bancoDeDados.BancoDados;
 import leituraEscrita.*;
-import enums.ContaTipoEnum;
-import enums.UsuarioTipoEnum;
 import leitura.Leitura;
-import leituraEscrita.LeArquivo;
-import pessoal.Cliente;
-import pessoal.Diretor;
 import pessoal.Usuario;
-
-import java.io.FileNotFoundException;
 
 
 

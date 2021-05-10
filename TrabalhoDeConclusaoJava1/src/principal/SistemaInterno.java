@@ -1,19 +1,14 @@
 package principal;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Scanner;
 
 import bancoDeDados.BancoDados;
 import conta.*;
 import enums.ContaTipoEnum;
-import leitura.Leitura;
 import leituraEscrita.LeArquivo;
 import menu.Menu;
-import pessoal.Cliente;
-import pessoal.Funcionario;
 import pessoal.Usuario;
-import pessoal.Gerente;
 
 public class SistemaInterno {
 	
@@ -54,12 +49,13 @@ public class SistemaInterno {
 			
 			switch(usuario.getTipo()) {
 			case "Cliente": 	menu.menuCliente(contaUsuario,usuario);
-							break;
-			case "Gerente": menu.menuGerente(contaUsuario,usuario);
-							break;
-			case "Diretor": menu.menuDiretor(contaUsuario,usuario);
-							break;
-			case "Presidente":  break;
+								break;
+			case "Gerente": 	menu.menuGerente(contaUsuario,usuario);
+								break;
+			case "Diretor": 	menu.menuDiretor(contaUsuario,usuario);
+								break;
+			case "Presidente":  menu.menuPresidente(contaUsuario,usuario);
+								break;
 			default: 		System.out.println("Erro");
 							break;
 			}
@@ -69,10 +65,14 @@ public class SistemaInterno {
 			contaUsuario = (ContaPoupanca) BancoDados.mapContas.get(usuario.getNumConta());
 			
 			switch(usuario.getTipo()) {
-			case "Cliente": menu.menuCliente(contaUsuario,usuario);
-							break;
-			case "Gerente": menu.menuGerente(contaUsuario,usuario);
-							break;			
+			case "Cliente":		 menu.menuCliente(contaUsuario,usuario);
+								break;
+			case "Gerente": 	menu.menuGerente(contaUsuario,usuario);
+								break;		
+			case "Diretor": 	menu.menuDiretor(contaUsuario,usuario);
+								break;
+			case "Presidente":  menu.menuPresidente(contaUsuario,usuario);
+								break;				
 			default: 		System.out.println("Erro");
 							break;
 			}
@@ -81,7 +81,7 @@ public class SistemaInterno {
 			System.out.println("Erro tipo de conta inválida");
 		}
 		
-		
+		sc.close();
 		}
 	}	
 

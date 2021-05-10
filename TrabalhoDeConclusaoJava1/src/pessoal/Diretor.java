@@ -2,10 +2,9 @@ package pessoal;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import bancoDeDados.BancoDados;
-import conta.Conta;
-import enums.UsuarioTipoEnum;
 import leituraEscrita.LeArquivo;
 
 public class Diretor extends Cliente implements Funcionario{
@@ -18,12 +17,12 @@ public class Diretor extends Cliente implements Funcionario{
 	}
 	
 	public void relatorioDiretor() throws IOException {
-		ArrayList<Cliente> lista = new ArrayList<Cliente>();
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		
 		lista = LeArquivo.listaClientes();
-		//lista.sort();
+		Collections.sort(lista);
 		System.out.println("RELATÓRIO DOS CLIENTES");
-		for(Cliente c : lista) {
+		for(Usuario c : lista) {
 			System.out.print("NOME : " + c.nomeUsuario + " \nCPF : " + c.getcpfUsuario() + " \nAGÊNCIA : " + (BancoDados.mapContas.get(c.numConta)).getAgencia()+"\n###############\n");
 			
 		}

@@ -34,6 +34,7 @@ public class ContaPoupanca extends Conta{
 			int dias = sc.nextInt();
 			System.out.println("Insira o valor da aplicação: ");
 			double valor = sc.nextDouble();
+			sc.close();
 			
 			System.out.println("Rendimento simulado = " + simulacaoRendimento(dias,valor));
 		}

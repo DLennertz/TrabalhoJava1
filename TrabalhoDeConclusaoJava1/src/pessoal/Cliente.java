@@ -1,12 +1,5 @@
 package pessoal;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import conta.Conta;
-import conta.ContaCorrente;
-import enums.UsuarioTipoEnum;
-
 public class Cliente extends Usuario{
 		
 		public Cliente() {

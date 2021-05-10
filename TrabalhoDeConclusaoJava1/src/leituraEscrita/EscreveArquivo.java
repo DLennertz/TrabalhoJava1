@@ -3,8 +3,6 @@ package leituraEscrita;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import conta.Conta;
 import pessoal.Usuario;
 

@@ -1,6 +1,10 @@
 package conta;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import leituraEscrita.EscreveArquivo;
+import pessoal.Usuario;
 
 public class ContaPoupanca extends Conta{
 	    //private ContaEnum tipoConta;
@@ -26,7 +30,7 @@ public class ContaPoupanca extends Conta{
 			return valor*Math.pow((1+0.01),dias);
 		}
 		
-		public void processoSimulacaoRendimento() {
+		public void processoSimulacaoRendimento(Usuario usuario) throws IOException {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("SIMULAÇÃO RENDIMENTO");
 			System.out.println("##########################");
@@ -34,9 +38,13 @@ public class ContaPoupanca extends Conta{
 			int dias = sc.nextInt();
 			System.out.println("Insira o valor da aplicação: ");
 			double valor = sc.nextDouble();
-			sc.close();
+//			sc.close();
 			
-			System.out.println("Rendimento simulado = " + simulacaoRendimento(dias,valor));
+			double Resultado = simulacaoRendimento(dias,valor);
+			
+			System.out.println("Rendimento simulado = " + Resultado );
+			EscreveArquivo.registraSimulacaoRendimento(valor, dias, usuario, Resultado);
+			
 		}
 		
 		

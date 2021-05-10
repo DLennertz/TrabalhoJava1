@@ -152,7 +152,7 @@ public class Menu {
 							}
 							break;
 					case 3: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
-								((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
+								((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Poupança");
@@ -211,7 +211,7 @@ public class Menu {
 									break;
 					
 							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
-										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
+										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
 										System.out.println("A conta não é do tipo Conta Poupança");
@@ -272,7 +272,7 @@ public class Menu {
 									break;
 					
 							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
-										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
+										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
 										System.out.println("A conta não é do tipo Conta Poupança");
@@ -333,7 +333,7 @@ public class Menu {
 									break;
 					
 							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
-										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento();
+										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
 										System.out.println("A conta não é do tipo Conta Poupança");

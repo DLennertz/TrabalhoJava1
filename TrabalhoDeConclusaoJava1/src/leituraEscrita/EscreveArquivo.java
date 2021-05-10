@@ -86,5 +86,29 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 			System.out.println("Erro de escrita");
 		}
 	}	
-
+	
+	public static void registraSimulacaoRendimento(double valor, int dias, Usuario usuario,double Resultado ) throws IOException {
+		
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/SimulacaoRendimento"+usuario.getNome()+usuario.getNumConta()+".txt",true));
+		String linha = "SIMULAÇAO DE RENDIMENTO";
+		buffWrite.append(linha + "\n");
+		
+		linha = "Número da Conta: "+ usuario.getNumConta();
+		buffWrite.append(linha + "\n");
+		
+		linha = "Duração da Simulação em Dias: "+ dias;
+		buffWrite.append(linha + "\n");
+		
+		linha = "Valor do Investimento: "+ valor;
+		buffWrite.append(linha + "\n");
+		
+		linha = "Valor Resultante da Simulação: R$" + Resultado;
+		buffWrite.append(linha + "\n");
+		
+		linha = "**********Fim da Simulação**********";
+		buffWrite.append(linha + "\n\n");
+		
+		buffWrite.close();
+	}
+	
 }

@@ -6,6 +6,7 @@ import java.util.Scanner;
 import bancoDeDados.BancoDados;
 import conta.*;
 import enums.ContaTipoEnum;
+import exception.ContaException;
 import leituraEscritaArquivo.LeArquivo;
 import menu.Menu;
 import pessoal.Usuario;
@@ -13,7 +14,7 @@ import pessoal.Usuario;
 public class SistemaInterno {
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ContaException {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		String senha, cpf;

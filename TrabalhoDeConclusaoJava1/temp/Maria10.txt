@@ -86,3 +86,15 @@ Conta: 10
 Depósito: R$200.0
 **********Fim do Deposito**********
 
+**********Saque**********
+Agencia: 400
+Conta: 10
+Saque: R$-10.0
+**********Fim do Saque**********
+
+**********Saque**********
+Agencia: 400
+Conta: 10
+Saque: R$9999999.0
+**********Fim do Saque**********
+

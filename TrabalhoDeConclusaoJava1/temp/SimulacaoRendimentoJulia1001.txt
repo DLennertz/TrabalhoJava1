@@ -1,0 +1,21 @@
+SIMULAÇAO DE RENDIMENTO
+Número da Conta: 1001
+Duração da Simulação em Dias: 1000
+Valor do Investimento: 3.0
+Valor Resultante da Simulação: R$62877.46691344153
+**********Fim da Simulação**********
+
+SIMULAÇAO DE RENDIMENTO
+Número da Conta: 1001
+Duração da Simulação em Dias: 5
+Valor do Investimento: 2000.0
+Valor Resultante da Simulação: R$2102.0201002000003
+**********Fim da Simulação**********
+
+SIMULAÇAO DE RENDIMENTO
+Número da Conta: 1001
+Duração da Simulação em Dias: 5
+Valor do Investimento: 1000.0
+Valor Resultante da Simulação: R$1051.0100501000002
+**********Fim da Simulação**********
+

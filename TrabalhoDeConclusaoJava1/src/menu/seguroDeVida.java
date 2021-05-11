@@ -3,6 +3,7 @@ package menu;
 import java.util.Scanner;
 
 import conta.Conta;
+import exception.ContaException;
 import pessoal.Usuario;
 
 public class seguroDeVida {
@@ -14,7 +15,7 @@ public class seguroDeVida {
 	static boolean cont = false; 
 	
 
-	public static void seguroVida (Conta contaUsuario, Usuario usuario) {
+	public static void seguroVida (Conta contaUsuario, Usuario usuario) throws ContaException {
 		
 		
 		
@@ -35,24 +36,25 @@ public class seguroDeVida {
 				case 1:
 					
 					
-					do {
+				
 					
 					System.out.println("Informe o valor que sera segurado: R$");
 					valorSeg = sc.nextDouble();
 					
 					tributoSeg = valorSeg * 0.2;
 					
-						if (contaUsuario.saque(valorSeg - tributoSeg  - 0.10 )) {
-							
+						try  {
+							contaUsuario.saque(valorSeg - tributoSeg  - 0.10);
 							usuario.setValorSegVida(valorSeg);
-							cont = true;
 							
 							System.out.println("Serviço Contratado");
-							usuario.setSeguroVida("Contratado");
-							
+							usuario.setSeguroVida("Contratado");	
+						}
+						catch(ContaException e){
+							System.out.println(e);
 						}
 						
-					} while (cont == false);
+					
 					
 					
 					break;

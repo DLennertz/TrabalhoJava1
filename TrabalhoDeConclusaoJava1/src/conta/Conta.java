@@ -47,6 +47,16 @@ public abstract class Conta {
 	    public void incrementaNumeroDeTransferencias(){
 	    	numeroDeTransferencias++;
 	    }
+	    
+	    public int getNumerodeTransferencias() {
+	    	return numeroDeTransferencias;
+	    }
+	    
+	    public int getNumeroDeSaques() {
+	    	return numeroDeSaques;
+	    }
+	    
+	    public int getNumeroDeDepositos;
 
 		public int getNumConta() {
 			return numConta;

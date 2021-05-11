@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import bancoDeDados.BancoDados;
 import conta.Conta;
+import leituraEscrita.EscreveArquivo;
 import leituraEscrita.LeArquivo;
 
 public class Presidente extends Cliente implements Funcionario{
@@ -38,5 +39,9 @@ public class Presidente extends Cliente implements Funcionario{
 			total+=c.getSaldo();
 		}
 		System.out.println("TOTAL : " + total);
+		
+		EscreveArquivo.registroCapitalTotal(total);
 	}
+	
+	
 }

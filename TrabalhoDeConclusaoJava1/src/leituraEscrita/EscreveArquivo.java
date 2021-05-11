@@ -153,4 +153,16 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 		
 	}
 	
+	public static void registroCapitalTotal(double total) throws IOException {
+		String linha;
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/Relatoricapitaltotal.txt"));
+		linha =  " ########Capital Total######## ";
+		buffWrite.append(linha + "\n");
+		
+		linha = "R$"+ total;
+		buffWrite.append(linha + "\n");
+		
+		buffWrite.close();
+	}
+	
 }

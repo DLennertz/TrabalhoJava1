@@ -3,6 +3,7 @@ package pessoal;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 import bancoDeDados.BancoDados;
 import conta.Conta;
@@ -42,6 +43,28 @@ public class Presidente extends Cliente implements Funcionario{
 		System.out.println("TOTAL : " + total);
 		
 		EscreveArquivo.registroCapitalTotal(total);
+	}
+
+	@Override
+	public void relatorioNumeroContas() throws IOException {
+		ArrayList<Conta> lista = new ArrayList<Conta>();
+		
+		Scanner sc = new Scanner (System.in);
+		
+		System.out.print("Digite o numero da Agência: ");
+		int agencia = sc.nextInt();
+		
+		
+		lista = LeArquivo.listaContaGerente(agencia);
+		System.out.println("RELATÓRIO N# DE CONTAS NA AGÊNCIA "+agencia);
+		System.out.print("CONTAS EXISTENTES NA AGÊNCIA: ");
+		for(Conta c : lista) {
+			if(c.getAgencia() == agencia) {
+				System.out.print(c.getNumConta() + " / ");
+			}
+		}
+		System.out.println("\n");
+		EscreveArquivo.registroRelatorioNumeroContas(lista, agencia);
 	}
 	
 	

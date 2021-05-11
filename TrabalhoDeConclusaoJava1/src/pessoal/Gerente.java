@@ -32,7 +32,7 @@ public class Gerente extends Cliente implements Funcionario {
 					+ sobrenomeUsuario + ", tipoUsuario=" + tipoUsuario + "]";
 		}
 
-		public void relatorioGerente() throws IOException {
+		public void relatorioNumeroContas() throws IOException {
 			ArrayList<Conta> lista = new ArrayList<Conta>();
 			
 			lista = LeArquivo.listaContaGerente(this.agenciaGerenciada);

@@ -12,7 +12,6 @@ import pessoal.Usuario;
 import conta.ContaCorrente;
 import conta.ContaPoupanca;
 import enums.ContaTipoEnum;
-import exception.ContaException;
 
 public class Menu {
 	public int menuMovimentacaoConta(){
@@ -83,10 +82,11 @@ public class Menu {
 		System.out.println("|2- Relatório de tributação da conta corrente                     |");
 		System.out.println("|3- Relatório de Rendimento da poupança                           |");
 		System.out.println("|4- Relatório com as informações dos clientes (Nome CPF Agência)  |");
+		System.out.println("|5- Relatório do número de contas em uma Agência                  |");
 		System.out.println("|0- Voltar                                                        |");
 		System.out.println("|_________________________________________________________________|");
 		opcao = ler.lerInteiro();
-		while(opcao < 0 || opcao > 4) {
+		while(opcao < 0 || opcao > 5) {
 			System.out.println("Opção invalida. Escolha uma opção novamente");
 			opcao = ler.lerInteiro();
 		}
@@ -104,17 +104,18 @@ public class Menu {
 		System.out.println("|3- Relatório de Rendimento da poupança                           |");
 		System.out.println("|4- Relatório com as informações dos clientes (Nome CPF Agência)  |");
 		System.out.println("|5- Relatório com o valor de capital do banco                     |");
+		System.out.println("|6- Relatório do número de contas em uma Agência                  |");
 		System.out.println("|0- Voltar                                                        |");
 		System.out.println("|_________________________________________________________________|");
 		opcao = ler.lerInteiro();
-		while(opcao < 0 || opcao > 5) {
+		while(opcao < 0 || opcao > 6) {
 			System.out.println("Opção invalida. Escolha uma opção novamente");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;
 	}
 	
-	public void menuCliente(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
+	public void menuCliente(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
 		boolean continuar = true;
@@ -124,7 +125,8 @@ public class Menu {
 			System.out.println("|                         |");
 			System.out.println("|1- Movimentação na conta |");
 			System.out.println("|2- Relatórios            |");
-			System.out.println("|3- Sair                  |");
+			System.out.println("|3- Seguro de Vida        |");
+			System.out.println("|4- Sair                  |");
 			System.out.println("|_________________________|");
 			opcao = sc.nextInt();
 			
@@ -146,7 +148,7 @@ public class Menu {
 					case 1:contaUsuario.imprimirSaldo();
 							break;
 					case 2: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
-								((ContaCorrente)contaUsuario).relatorioTributacao();
+								((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 							}
 							else
 							{	System.out.println("A conta não é do tipo Conta Corrente");
@@ -163,7 +165,9 @@ public class Menu {
 							break;
 					}
 					break;
-			case 3:continuar = false;
+			case 3:seguroDeVida.seguroVida(contaUsuario, usuario);
+				break;
+			case 4:continuar = false;
 					break;
 			default: System.out.println("Opção inválida");
 			 		break;
@@ -174,7 +178,7 @@ public class Menu {
 	}
 		
 	
-	public void menuGerente(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
+	public void menuGerente(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;
@@ -204,7 +208,7 @@ public class Menu {
 							case 1: contaUsuario.imprimirSaldo();
 									break;
 							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
-										((ContaCorrente)contaUsuario).relatorioTributacao();
+										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
 										System.out.println("A conta não é do tipo Conta Corrente");
@@ -218,7 +222,7 @@ public class Menu {
 										System.out.println("A conta não é do tipo Conta Poupança");
 									}
 									break;
-							case 4: ((Gerente)usuario).relatorioGerente();
+							case 4: ((Gerente)usuario).relatorioNumeroContas();
 									break;
 							case 0:
 									break;
@@ -235,7 +239,7 @@ public class Menu {
 	}
 	
 	
-	public void menuDiretor(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
+	public void menuDiretor(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;
@@ -265,7 +269,7 @@ public class Menu {
 							case 1: contaUsuario.imprimirSaldo();
 									break;
 							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
-										((ContaCorrente)contaUsuario).relatorioTributacao();
+										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
 										System.out.println("A conta não é do tipo Conta Corrente");
@@ -280,6 +284,8 @@ public class Menu {
 									}
 									break;
 							case 4: ((Diretor)usuario).relatorioDiretor();
+									break;
+							case 5: ((Diretor)usuario).relatorioNumeroContas();
 									break;
 							case 0:
 									break;
@@ -296,7 +302,7 @@ public class Menu {
 		//sc.close();
 	}
 	
-	public void menuPresidente(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
+	public void menuPresidente(Conta contaUsuario, Usuario usuario) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;
@@ -326,7 +332,7 @@ public class Menu {
 							case 1: contaUsuario.imprimirSaldo();
 									break;
 							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
-										((ContaCorrente)contaUsuario).relatorioTributacao();
+										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
 										System.out.println("A conta não é do tipo Conta Corrente");
@@ -343,6 +349,8 @@ public class Menu {
 							case 4: ((Presidente)usuario).relatorioPresidente();
 									break;
 							case 5:	((Presidente)usuario).relatorioCapitalPresidente();
+									break;
+							case 6:((Presidente)usuario).relatorioNumeroContas();
 									break;
 							case 0 :
 									break;

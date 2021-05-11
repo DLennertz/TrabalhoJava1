@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import bancoDeDados.BancoDados;
 import leituraEscritaArquivo.EscreveArquivo;
+import pessoal.Usuario;
 
 public class ContaCorrente extends Conta{
 		//private ContaEnum tipoConta;
@@ -26,14 +27,39 @@ public class ContaCorrente extends Conta{
 					+ agencia + ", numConta=" + numConta + "]";
 		}
 
-		public void relatorioTributacao() throws IOException {
-			System.out.println("##############RELATÓRIO TRIBUTAÇÃO###############");
-			System.out.println("Valor tributado dos saques (R$ 0,10 por saque): R$" + this.numeroDeSaques * 0.1);
-			System.out.println("Valor tributado dos depósiros (R$ 0,10 por depósito): R$" + this.numeroDeDepositos * 0.1);
-			System.out.println("Valor tributado das tranferencias (R$ 0,20 por transferencia): R$" + this.numeroDeTransferencias * 0.2);
-			System.out.println("TOTAL TRIBUTADO: R$" +(this.numeroDeSaques * 0.1+ this.numeroDeDepositos * 0.1 + this.numeroDeTransferencias * 0.2));
+		public void relatorioTributacao(Usuario usuario) throws IOException {
 			
-			EscreveArquivo.registraRelatorioTributacao(BancoDados.mapContas.get(this.numConta));
+			if (usuario.getSeguroVida() == "Contratado") {
+				
+				System.out.println("##############RELATÓRIO TRIBUTAÇÃO###############");
+				System.out.printf("Valor tributado dos saques (R$ 0,10 por saque): R$%.2f" , this.numeroDeSaques * 0.1 );
+				System.out.println();
+				System.out.printf("Valor tributado dos depósitos (R$ 0,10 por depósito): R$%.2f" , this.numeroDeDepositos * 0.1 );
+				System.out.println();
+				System.out.printf("Valor tributado das tranferencias (R$ 0,20 por transferencia): R$%.2f" , this.numeroDeTransferencias * 0.2 );
+				System.out.println();
+				System.out.printf("Valor assegurado no Seguro de vida R$%.2f" , usuario.getValorSegVida() );
+				System.out.println();
+				System.out.printf("TOTAL TRIBUTADO: R$%.2f" ,(this.numeroDeSaques * 0.1+ this.numeroDeDepositos * 0.1 + this.numeroDeTransferencias * 0.2 + usuario.getValorSegVida()) );
+				System.out.println();
+				
+			}
+			
+			else {
+				System.out.println("##############RELATÓRIO TRIBUTAÇÃO###############");
+				System.out.printf("Valor tributado dos saques (R$ 0,10 por saque): R$%.2f" , this.numeroDeSaques * 0.1 );
+				System.out.println();
+				System.out.printf("Valor tributado dos depósitos (R$ 0,10 por depósito): R$%.2f" , this.numeroDeDepositos * 0.1 );
+				System.out.println();
+				System.out.printf("Valor tributado das tranferencias (R$ 0,20 por transferencia): R$%.2f" , this.numeroDeTransferencias * 0.2 );
+				System.out.println();
+				System.out.printf("TOTAL TRIBUTADO: R$%.2f" ,(this.numeroDeSaques * 0.1+ this.numeroDeDepositos * 0.1 + this.numeroDeTransferencias * 0.2) );
+				System.out.println();
+			}
+			
+			
+			EscreveArquivo.registraRelatorioTributacao(BancoDados.mapContas.get(this.numConta), usuario);
+			
 		}
 		
 		

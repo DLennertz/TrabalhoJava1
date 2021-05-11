@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import bancoDeDados.BancoDados;
-import exception.ContaException;
 import leitura.Leitura;
 import leituraEscritaArquivo.*;
 import pessoal.Usuario;
@@ -57,7 +56,9 @@ public abstract class Conta {
 	    	return numeroDeSaques;
 	    }
 	    
-	    public int getNumeroDeDepositos;
+	    public int getNumeroDeDepositos () {
+	    	return numeroDeDepositos;
+	    }
 
 		public int getNumConta() {
 			return numConta;
@@ -97,22 +98,24 @@ public abstract class Conta {
 			return this.agencia;
 		}
 		
-		public boolean saque(double valor) throws ContaException {
+		public boolean saque(double valor) {
 			
 				if(saldo>=valor && valor > 0) {
 					this.saldo = this.saldo - valor - 0.10;
 					return true;
 				}
 				else if(valor <= 0){	
-					throw new ContaException("Saque menor ou igual a zero");
+					System.out.println("Erro. Valor so saque igual a 0 ou negativo");
+					return false;
 				}
 				else {
-					throw new ContaException("Saldo Insuficiente");
+					System.out.println("Saldo Insuficiente");
+					return false;
 				}
 			
 		}
 		
-		public boolean transfere(Conta destino, double valor) throws ContaException {
+		public boolean transfere(Conta destino, double valor) {
 			if(valor<=this.saldo+0.1 && valor > 0) {
 				this.saque(valor+0.10);
 				destino.deposita(valor+0.1);
@@ -128,7 +131,7 @@ public abstract class Conta {
 			}
 		}
 		
-		public void processoSaque(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
+		public void processoSaque(Conta contaUsuario, Usuario usuario) throws IOException {
 			double valorSaque;
 			
 			System.out.println("Insira o valor do saque:");
@@ -139,13 +142,10 @@ public abstract class Conta {
 				
 				}
 			else {
-				try {
-				this.saque(valorSaque);
+				while(!this.saque(valorSaque)){
+					System.out.println("Erro ao fazer o saque. Insira novo valor");
+					valorSaque = ler.lerDouble();
 				}
-				catch(ContaException e) {
-					System.out.println(e);
-				}
-				
 			}
 			EscreveArquivo.registraSaque(contaUsuario, usuario,valorSaque);
 			this.incrementaNumeroDeSaques();
@@ -165,7 +165,7 @@ public abstract class Conta {
 			
 		}
 		
-		public void processoTransferencia(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
+		public void processoTransferencia(Conta contaUsuario, Usuario usuario) throws IOException {
 			
 			double valorTransferencia;
 			System.out.println("Insira o número da conta de destino: ");
@@ -179,7 +179,7 @@ public abstract class Conta {
 			
 			System.out.println("Insira o valor a ser transferido: ");
 			valorTransferencia = ler.lerDouble();
-			
+		
 			this.transfere(contaDestino, valorTransferencia);
 			EscreveArquivo.registraTransferencia(contaUsuario, contaDestino, usuario, valorTransferencia);
 			System.out.println("Saldo do remetente :R$" + contaUsuario.getSaldo());

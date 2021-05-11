@@ -8,6 +8,9 @@ public class Usuario  implements Comparable<Usuario>{
 	protected String cpfUsuario; 
 	protected int numConta;
 	
+	protected String seguroVida;
+	protected double valorSegVida;
+	
 	public Usuario() {
 		
 	}
@@ -43,9 +46,35 @@ public class Usuario  implements Comparable<Usuario>{
 	public String getSobrenome() {
 		return sobrenomeUsuario;
 	}
+	
+	
+	
+	public String getSeguroVida() {
+		return seguroVida;
+	}
+
+	public void setSeguroVida(String seguroVida) {
+		this.seguroVida = seguroVida;
+	}
+	
+
+	public double getValorSegVida() {
+		return valorSegVida;
+	}
+
+	public void setValorSegVida(double valorSegVida) {
+		this.valorSegVida = valorSegVida;
+	}
+	
+	
+	
+	
+	
 	@Override
 	public int compareTo(Usuario o) {
 		return this.nomeUsuario.compareTo(o.nomeUsuario);
 	}
+
+	
 
 }

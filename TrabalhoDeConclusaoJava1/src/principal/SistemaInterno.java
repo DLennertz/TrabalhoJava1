@@ -6,7 +6,6 @@ import java.util.Scanner;
 import bancoDeDados.BancoDados;
 import conta.*;
 import enums.ContaTipoEnum;
-import exception.ContaException;
 import leituraEscritaArquivo.LeArquivo;
 import menu.Menu;
 import pessoal.Usuario;
@@ -14,7 +13,7 @@ import pessoal.Usuario;
 public class SistemaInterno {
 	
 	
-	public static void main(String[] args) throws IOException, ContaException {
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		String senha, cpf;
@@ -27,16 +26,14 @@ public class SistemaInterno {
 		System.out.println("|                            |");
 		System.out.print("|Digite seu CPF :");
 		cpf= sc.next();
-
-	
+		
 		usuario = BancoDados.mapUsuario.get(cpf);
 		
-			while(usuario==null) {
-				System.out.println("CPF não encontrado. Insira novo CPF");
-				cpf= sc.next();
-				usuario = BancoDados.mapUsuario.get(cpf);
-			}
-
+		while(usuario==null) {
+			System.out.println("CPF não encontrado. Insira novo CPF");
+			cpf= sc.next();
+			usuario = BancoDados.mapUsuario.get(cpf);
+		}
 		System.out.print("|Digite sua senha:");
 		senha= sc.next();
 

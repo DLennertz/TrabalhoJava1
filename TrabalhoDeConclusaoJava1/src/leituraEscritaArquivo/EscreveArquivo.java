@@ -116,25 +116,53 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 		buffWrite.close();
 	}
 	
-	public static void registraRelatorioTributacao(Conta conta) throws IOException {
-		String linha;
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao"+conta.getNumConta()+".txt",true));
-		linha ="##############RELATÓRIO TRIBUTAÇÃO###############";
-		buffWrite.append(linha + "\n");
+	public static void registraRelatorioTributacao(Conta conta, Usuario usuario) throws IOException {
 		
-		linha ="Valor tributado dos saques (R$ 0,10 por saque): R$" + conta.getNumeroDeSaques() * 0.1;
-		buffWrite.append(linha + "\n");
+		if (usuario.getSeguroVida() == "Contratado") {
+			String linha;
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao"+conta.getNumConta()+".txt",true));
+			linha ="##############RELATÓRIO TRIBUTAÇÃO###############";
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor tributado dos saques (R$ 0,10 por saque): R$" + conta.getNumeroDeSaques() * 0.1;
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor tributado dos depósiros (R$ 0,10 por depósito): R$" + conta.getNumeroDeDepositos() * 0.1;
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor tributado das tranferencias (R$ 0,20 por transferencia): R$" + conta.getNumerodeTransferencias() * 0.2;
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor assegurado no Seguro de vida R$" + usuario.getValorSegVida();
+			buffWrite.append(linha + "\n");
+			
+			linha ="TOTAL TRIBUTADO: R$" +(conta.getNumeroDeSaques() * 0.1+ conta.getNumeroDeDepositos() * 0.1 + conta.getNumerodeTransferencias() * 0.2 + usuario.getValorSegVida());
+			buffWrite.append(linha + "\n");
+			
+			buffWrite.close();
 		
-		linha ="Valor tributado dos depósiros (R$ 0,10 por depósito): R$" + conta.getNumeroDeDepositos * 0.1;
-		buffWrite.append(linha + "\n");
+		}
 		
-		linha ="Valor tributado das tranferencias (R$ 0,20 por transferencia): R$" + conta.getNumerodeTransferencias() * 0.2;
-		buffWrite.append(linha + "\n");
+		else {
+			String linha;
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao"+conta.getNumConta()+".txt",true));
+			linha ="##############RELATÓRIO TRIBUTAÇÃO###############";
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor tributado dos saques (R$ 0,10 por saque): R$" + conta.getNumeroDeSaques() * 0.1;
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor tributado dos depósiros (R$ 0,10 por depósito): R$" + conta.getNumeroDeDepositos() * 0.1;
+			buffWrite.append(linha + "\n");
+			
+			linha ="Valor tributado das tranferencias (R$ 0,20 por transferencia): R$" + conta.getNumerodeTransferencias() * 0.2;
+			buffWrite.append(linha + "\n");
+			
+			linha ="TOTAL TRIBUTADO: R$" +(conta.getNumeroDeSaques() * 0.1+ conta.getNumeroDeDepositos() * 0.1 + conta.getNumerodeTransferencias() * 0.2);
+			buffWrite.append(linha + "\n");
 		
-		linha ="TOTAL TRIBUTADO: R$" +(conta.getNumeroDeSaques() * 0.1+ conta.getNumeroDeDepositos * 0.1 + conta.getNumerodeTransferencias() * 0.2);
-		buffWrite.append(linha + "\n");
-		
-		buffWrite.close();
+			buffWrite.close();
+		}
 	}
 	
 	

@@ -22,3 +22,42 @@ Conta: 10
 Saque: R$400.0
 **********Fim do Saque**********
 
+**********Saque**********
+Agencia: 400
+Conta: 10
+Saque: R$-10.0
+**********Fim do Saque**********
+
+**********Transferencia**********
+Agencia: 400
+Conta Remetente: 10
+Conta Destinatária: 1
+Valor Transferido: R$-10.0
+**********Fim da Transferencia**********
+
+**********Saque**********
+Agencia: 400
+Conta: 10
+Saque: R$-10.0
+**********Fim do Saque**********
+
+**********Transferencia**********
+Agencia: 400
+Conta Remetente: 10
+Conta Destinatária: 1
+Valor Transferido: R$-10.0
+**********Fim da Transferencia**********
+
+**********Saque**********
+Agencia: 400
+Conta: 10
+Saque: R$10.0
+**********Fim do Saque**********
+
+**********Transferencia**********
+Agencia: 400
+Conta Remetente: 10
+Conta Destinatária: 1
+Valor Transferido: R$100.0
+**********Fim da Transferencia**********
+

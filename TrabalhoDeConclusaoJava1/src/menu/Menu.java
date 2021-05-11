@@ -12,6 +12,7 @@ import pessoal.Usuario;
 import conta.ContaCorrente;
 import conta.ContaPoupanca;
 import enums.ContaTipoEnum;
+import exception.ContaException;
 
 public class Menu {
 	public int menuMovimentacaoConta(){
@@ -113,7 +114,7 @@ public class Menu {
 		return opcao;
 	}
 	
-	public void menuCliente(Conta contaUsuario, Usuario usuario) throws IOException {
+	public void menuCliente(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 		Scanner sc = new Scanner(System.in);
 		int opcao;
 		boolean continuar = true;
@@ -173,7 +174,7 @@ public class Menu {
 	}
 		
 	
-	public void menuGerente(Conta contaUsuario, Usuario usuario) throws IOException {
+	public void menuGerente(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;
@@ -234,7 +235,7 @@ public class Menu {
 	}
 	
 	
-	public void menuDiretor(Conta contaUsuario, Usuario usuario) throws IOException {
+	public void menuDiretor(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;
@@ -295,7 +296,7 @@ public class Menu {
 		//sc.close();
 	}
 	
-	public void menuPresidente(Conta contaUsuario, Usuario usuario) throws IOException {
+	public void menuPresidente(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 		Scanner sc = new Scanner(System.in);
 		int opcao; 
 		boolean continuar = true;

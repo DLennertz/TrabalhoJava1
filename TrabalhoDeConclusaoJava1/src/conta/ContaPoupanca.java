@@ -42,7 +42,8 @@ public class ContaPoupanca extends Conta{
 			
 			double Resultado = simulacaoRendimento(dias,valor);
 			
-			System.out.println("Rendimento simulado = " + Resultado );
+			System.out.printf("Rendimento simulado = R$%.2f", Resultado );
+			System.out.println("");
 			EscreveArquivo.registraSimulacaoRendimento(valor, dias, usuario, Resultado);
 			
 		}

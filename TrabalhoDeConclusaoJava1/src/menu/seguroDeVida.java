@@ -3,7 +3,6 @@ package menu;
 import java.util.Scanner;
 
 import conta.Conta;
-import enums.ContaTipoEnum;
 import pessoal.Usuario;
 
 public class seguroDeVida {
@@ -18,18 +17,15 @@ public class seguroDeVida {
 	public static void seguroVida (Conta contaUsuario, Usuario usuario) {
 		
 		
-		if (contaUsuario.getTipoConta().equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
-			
-			System.out.println(contaUsuario.getTipoConta() + " nao e aceitavel para esse servico");
-		}
-		else if (usuario.getSeguroVida() == "Contratado") {
-			System.out.println("Voce ja possue esse servico contratado");
+		
+		if (usuario.getSeguroVida() == "Contratado") {
+			System.out.println("Você já possui esse serviço contratado.");
 		}
 		else  {
 		
 			do {
 			
-			System.out.println("Desejar contratar o Seguro de vida?");
+			System.out.println("Deseja contratar o Seguro de vida?");
 			System.out.println("1 - Sim");
 			System.out.println("2 - Nao");
 			esc = sc.nextInt();
@@ -51,7 +47,7 @@ public class seguroDeVida {
 							usuario.setValorSegVida(valorSeg);
 							cont = true;
 							
-							System.out.println("Servico Contratado");
+							System.out.println("Serviço Contratado");
 							usuario.setSeguroVida("Contratado");
 							
 						}
@@ -65,7 +61,7 @@ public class seguroDeVida {
 					break;
 					
 				default:
-					System.out.println("Escolha invalida");
+					System.out.println("Escolha inválida");
 					break;
 			}
 			

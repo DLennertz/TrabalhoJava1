@@ -4,6 +4,8 @@ import java.io.IOException;
 import conta.Conta;
 
 import java.util.ArrayList;
+
+import leituraEscrita.EscreveArquivo;
 import leituraEscrita.LeArquivo;
 
 public class Gerente extends Cliente implements Funcionario {
@@ -42,5 +44,7 @@ public class Gerente extends Cliente implements Funcionario {
 					System.out.print(c.getNumConta() + " / ");
 				}
 			}
+			System.out.println("\n");
+			EscreveArquivo.registroRelatorioNumeroContas(lista, agenciaGerenciada);
 		}
 }

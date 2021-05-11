@@ -3,6 +3,8 @@ package leituraEscrita;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import conta.Conta;
 import pessoal.Usuario;
 
@@ -132,5 +134,23 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 		buffWrite.close();
 	}
 	
+	
+	public static void registroRelatorioNumeroContas(ArrayList<Conta> lista, int agencia) throws IOException {
+		String linha;
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioNumeroContas"+ agencia +".txt"));
+		linha ="##############RELATÓRIO DE CONTAS GERENCIADAS###############";		
+		buffWrite.append(linha + "\n");
+		
+		linha = "Contas pertencentes à agência " + agencia + ": \n";
+		buffWrite.append(linha);
+		
+		for(Conta c : lista) {
+			linha = c.getNumConta() + " / ";
+			buffWrite.append(linha);
+		}
+		
+		buffWrite.close();
+		
+	}
 	
 }

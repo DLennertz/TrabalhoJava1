@@ -3,7 +3,7 @@ package conta;
 import java.io.IOException;
 import java.util.Scanner;
 
-import leituraEscrita.EscreveArquivo;
+import leituraEscritaArquivo.EscreveArquivo;
 import pessoal.Usuario;
 
 public class ContaPoupanca extends Conta{

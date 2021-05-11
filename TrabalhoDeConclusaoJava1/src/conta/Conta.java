@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import bancoDeDados.BancoDados;
-import leituraEscrita.*;
 import leitura.Leitura;
+import leituraEscritaArquivo.*;
 import pessoal.Usuario;
 
 

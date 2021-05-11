@@ -39,7 +39,10 @@ public class Usuario  implements Comparable<Usuario>{
 	public String getNome() {
 		return nomeUsuario;
 	}
-
+	
+	public String getSobrenome() {
+		return sobrenomeUsuario;
+	}
 	@Override
 	public int compareTo(Usuario o) {
 		return this.nomeUsuario.compareTo(o.nomeUsuario);

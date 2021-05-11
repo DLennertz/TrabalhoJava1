@@ -3,7 +3,7 @@ package conta;
 import java.io.IOException;
 
 import bancoDeDados.BancoDados;
-import leituraEscrita.EscreveArquivo;
+import leituraEscritaArquivo.EscreveArquivo;
 
 public class ContaCorrente extends Conta{
 		//private ContaEnum tipoConta;

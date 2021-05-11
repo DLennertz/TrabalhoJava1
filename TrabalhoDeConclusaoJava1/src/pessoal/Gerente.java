@@ -2,11 +2,10 @@ package pessoal;
 
 import java.io.IOException;
 import conta.Conta;
+import leituraEscritaArquivo.EscreveArquivo;
+import leituraEscritaArquivo.LeArquivo;
 
 import java.util.ArrayList;
-
-import leituraEscrita.EscreveArquivo;
-import leituraEscrita.LeArquivo;
 
 public class Gerente extends Cliente implements Funcionario {
 		private int agenciaGerenciada;

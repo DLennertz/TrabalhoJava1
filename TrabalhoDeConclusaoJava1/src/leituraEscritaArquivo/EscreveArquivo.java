@@ -1,10 +1,13 @@
-package leituraEscrita;
+package leituraEscritaArquivo;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import bancoDeDados.BancoDados;
 import conta.Conta;
 import pessoal.Usuario;
 
@@ -137,11 +140,17 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 	
 	public static void registroRelatorioNumeroContas(ArrayList<Conta> lista, int agencia) throws IOException {
 		String linha;
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioNumeroContas"+ agencia +".txt"));
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_HH_mm");
+		Date date = new Date();
+		
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioNumeroContas"+ agencia +sdf.format(date)+".txt"));
+		sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
 		linha ="##############RELATÓRIO DE CONTAS GERENCIADAS###############";		
 		buffWrite.append(linha + "\n");
 		
-		linha = "Contas pertencentes à agência " + agencia + ": \n";
+		linha = "Contas pertencentes à agência " + agencia + " em "+ date +": \n";
 		buffWrite.append(linha);
 		
 		for(Conta c : lista) {
@@ -155,13 +164,38 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 	
 	public static void registroCapitalTotal(double total) throws IOException {
 		String linha;
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/Relatoricapitaltotal.txt"));
+		SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_HH_mm");
+		Date date = new Date();
+		
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/Relatoricapitaltotal"+ sdf.format(date)+".txt"));
+		sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		linha =  " ########Capital Total######## ";
+		buffWrite.append(linha + "\n");
+		linha= "Data e hora da consulta: "+ sdf.format(date);
 		buffWrite.append(linha + "\n");
 		
 		linha = "R$"+ total;
 		buffWrite.append(linha + "\n");
 		
+		buffWrite.close();
+	}
+	
+	public static void registraRelatorioUsuarios(ArrayList<Usuario> lista) throws IOException {
+		String linha;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy");
+		Date date = new Date();
+		
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioUsuarios"+ sdf.format(date)+".txt"));
+		
+		sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		linha = "Relatório dos usuários na data: " + sdf.format(date) + "\n";
+		buffWrite.append(linha + "\n");
+		
+		for(Usuario c : lista) {
+			linha = "NOME : " + c.getNome() + " "+ c.getSobrenome() +"\nCPF : " + c.getcpfUsuario() + " \nAGÊNCIA : " + (BancoDados.mapContas.get(c.getNumConta())).getAgencia()+"\n###############";
+			buffWrite.append(linha + "\n");
+		}
 		buffWrite.close();
 	}
 	

@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import bancoDeDados.BancoDados;
-import leituraEscrita.LeArquivo;
+import leituraEscritaArquivo.EscreveArquivo;
+import leituraEscritaArquivo.LeArquivo;
 
 public class Diretor extends Cliente implements Funcionario{
 	public Diretor() {
@@ -24,7 +25,7 @@ public class Diretor extends Cliente implements Funcionario{
 		System.out.println("RELATÓRIO DOS CLIENTES");
 		for(Usuario c : lista) {
 			System.out.print("NOME : " + c.nomeUsuario + " \nCPF : " + c.getcpfUsuario() + " \nAGÊNCIA : " + (BancoDados.mapContas.get(c.numConta)).getAgencia()+"\n###############\n");
-			
 		}
+		EscreveArquivo.registraRelatorioUsuarios(lista);
 	}
 }

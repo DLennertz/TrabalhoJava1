@@ -6,8 +6,8 @@ import java.util.Collections;
 
 import bancoDeDados.BancoDados;
 import conta.Conta;
-import leituraEscrita.EscreveArquivo;
-import leituraEscrita.LeArquivo;
+import leituraEscritaArquivo.EscreveArquivo;
+import leituraEscritaArquivo.LeArquivo;
 
 public class Presidente extends Cliente implements Funcionario{
 	
@@ -28,6 +28,7 @@ public class Presidente extends Cliente implements Funcionario{
 		for(Usuario c : lista) {
 			System.out.print("NOME : " + c.nomeUsuario + " \nCPF : " + c.getcpfUsuario() + " \nAGÊNCIA : " + (BancoDados.mapContas.get(c.numConta)).getAgencia()+"\n###############\n");		
 		}
+		EscreveArquivo.registraRelatorioUsuarios(lista);
 	}
 	
 	public void relatorioCapitalPresidente() throws IOException {

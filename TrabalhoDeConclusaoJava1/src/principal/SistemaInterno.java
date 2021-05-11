@@ -6,7 +6,7 @@ import java.util.Scanner;
 import bancoDeDados.BancoDados;
 import conta.*;
 import enums.ContaTipoEnum;
-import leituraEscrita.LeArquivo;
+import leituraEscritaArquivo.LeArquivo;
 import menu.Menu;
 import pessoal.Usuario;
 

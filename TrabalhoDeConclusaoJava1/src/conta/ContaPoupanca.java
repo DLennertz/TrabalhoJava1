@@ -7,17 +7,12 @@ import leituraEscritaArquivo.EscreveArquivo;
 import pessoal.Usuario;
 
 public class ContaPoupanca extends Conta{
-	    //private ContaEnum tipoConta;
 		
 	public ContaPoupanca() {
 		
 	}
 		public ContaPoupanca(String tipo,int numConta, String cpfTitular, double saldo, int agencia) {
 			super(tipo,numConta,cpfTitular, saldo, agencia );
-		}
-		
-		public String getTipo(){
-			return this.tipoConta;
 		}
 
 		@Override
@@ -38,7 +33,6 @@ public class ContaPoupanca extends Conta{
 			int dias = sc.nextInt();
 			System.out.println("Insira o valor da aplicação: ");
 			double valor = sc.nextDouble();
-//			sc.close();
 			
 			double Resultado = simulacaoRendimento(dias,valor);
 			

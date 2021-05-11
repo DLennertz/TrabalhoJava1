@@ -16,10 +16,6 @@ public class ContaCorrente extends Conta{
 		public ContaCorrente(String tipo,int numConta,String cpfTitular, double saldo, int agencia) {
 			super(tipo,numConta,cpfTitular, saldo, agencia);
 		}
-		
-		public String getTipo() {
-			return this.tipoConta;
-		}
 
 		@Override
 		public String toString() {

@@ -65,9 +65,18 @@ public abstract class Conta {
 			return numConta;
 		}
 		
+		public void setNumConta(int numConta) {
+			this.numConta=numConta;
+		}
+		
 		public String getTipoConta() {
 			return tipoConta;
 		}
+		
+		public void setTipoConta(String tipoConta) {
+			this.tipoConta=tipoConta;
+		}
+		
 		public void setCPFTitular(String cpfTitular){
 			this.cpfTitular =cpfTitular;
 		}
@@ -89,6 +98,10 @@ public abstract class Conta {
 		
 		public double getSaldo() {
 			return this.saldo;
+		}
+		
+		public void setSaldo(double saldo) {
+			this.saldo=saldo;
 		}
 		
 		public void setAgencia(int agencia) {

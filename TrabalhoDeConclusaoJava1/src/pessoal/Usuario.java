@@ -28,26 +28,49 @@ public class Usuario  implements Comparable<Usuario>{
 		return senhaUsuario;
 	}
 	
+	public void setSenhaUsuario(String senhaUsuario) {
+		this.senhaUsuario=senhaUsuario;
+	}
+	
 	public int getNumConta() {
 		return numConta;
 	}
+	
+	public void setNumConta(int numConta) {
+		this.numConta=numConta;
+	}
+	
 	public String getcpfUsuario(){
 		return cpfUsuario;
+	}
+	
+	public void setCpfUsuario(String cpfUsuario) {
+		this.cpfUsuario=cpfUsuario;
 	}
 	
 	public String getTipo() {
 		return tipoUsuario;
 	}
 	
+	public void setTipo(String tipo) {
+		this.tipoUsuario=tipo;
+	}
+	
 	public String getNome() {
 		return nomeUsuario;
+	}
+	
+	public void setNome(String nome) {
+		this.nomeUsuario=nome;
 	}
 	
 	public String getSobrenome() {
 		return sobrenomeUsuario;
 	}
 	
-	
+	public void setSobrenome(String sobrenome) {
+		this.sobrenomeUsuario=sobrenome;
+	}
 	
 	public String getSeguroVida() {
 		return seguroVida;

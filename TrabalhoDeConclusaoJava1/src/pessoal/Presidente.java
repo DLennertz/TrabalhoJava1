@@ -51,7 +51,7 @@ public class Presidente extends Cliente implements Funcionario{
 		
 		Scanner sc = new Scanner (System.in);
 		
-		System.out.print("Digite o numero da Agência: ");
+		System.out.print("Digite o número da Agência: ");
 		int agencia = sc.nextInt();
 		
 		

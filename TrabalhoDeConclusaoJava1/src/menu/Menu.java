@@ -19,7 +19,7 @@ public class Menu {
 		int opcao;
 		Leitura ler = new Leitura();
 		System.out.println(" _______________________");
-		System.out.println("|______Movimentacao_____|");
+		System.out.println("|______Movimentação_____|");
 		System.out.println("|                       |");	
 		System.out.println("|1- Saque               |");
 		System.out.println("|2- Depósito            |");
@@ -28,7 +28,7 @@ public class Menu {
 		System.out.println("|_______________________|");
 		opcao = ler.lerInteiro();
 		while(opcao < 0 ||opcao > 3) {
-			System.out.println("Opção inválida. Escolha uma opção novamente");
+			System.out.println("Opção inválida. Escolha uma opção novamente: ");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;
@@ -38,16 +38,16 @@ public class Menu {
 		int opcao;
 		Leitura ler = new Leitura();
 		System.out.println(" ____________________________________________");
-		System.out.println("|__________________Relatorio_________________|");
+		System.out.println("|__________________Relatório_________________|");
 		System.out.println("|                                            |");
 		System.out.println("|1- Saldo                                    |");
 		System.out.println("|2- Relatório de tributação da conta corrente|");
-		System.out.println("|3- Relatório de Rendimento da poupança      |");
+		System.out.println("|3- Relatório de rendimento da poupança      |");
 		System.out.println("|0- Voltar                                   |");
 		System.out.println("|____________________________________________|");
 		opcao = ler.lerInteiro();
 		while(opcao < 0 ||opcao > 3) {
-			System.out.println("Opção invalida. Escolha uma opção novamente");
+			System.out.println("Opção inválida. Escolha uma opção novamente: ");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;
@@ -57,17 +57,17 @@ public class Menu {
 		int opcao;
 		Leitura ler = new Leitura();
 		System.out.println(" ____________________________________________");
-		System.out.println("|__________________Relatorio_________________|");
+		System.out.println("|__________________Relatório_________________|");
 		System.out.println("|                                            |");
 		System.out.println("|1- Saldo                                    |");
 		System.out.println("|2- Relatório de tributação da conta corrente|");
-		System.out.println("|3- Relatório de Rendimento da poupança      |");
+		System.out.println("|3- Relatório de rendimento da poupança      |");
 		System.out.println("|4- Número contas das agência gerenciada     |");
 		System.out.println("|0- Voltar                                   |");
 		System.out.println("|____________________________________________|");
 		opcao = ler.lerInteiro();
 		while(opcao < 0 || opcao > 4) {
-			System.out.println("Opção invalida. Escolha uma opção novamente");
+			System.out.println("Opção inválida. Escolha uma opção novamente: ");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;
@@ -77,18 +77,18 @@ public class Menu {
 		int opcao;
 		Leitura ler = new Leitura();
 		System.out.println(" _________________________________________________________________");
-		System.out.println("|_____________________________Relatorio___________________________|");
+		System.out.println("|_____________________________Relatório___________________________|");
 		System.out.println("|                                                                 |");
 		System.out.println("|1- Saldo                                                         |");
 		System.out.println("|2- Relatório de tributação da conta corrente                     |");
-		System.out.println("|3- Relatório de Rendimento da poupança                           |");
+		System.out.println("|3- Relatório de rendimento da poupança                           |");
 		System.out.println("|4- Relatório com as informações dos clientes (Nome CPF Agência)  |");
 		System.out.println("|5- Relatório do número de contas em uma Agência                  |");
 		System.out.println("|0- Voltar                                                        |");
 		System.out.println("|_________________________________________________________________|");
 		opcao = ler.lerInteiro();
 		while(opcao < 0 || opcao > 5) {
-			System.out.println("Opção invalida. Escolha uma opção novamente");
+			System.out.println("Opção inválida. Escolha uma opção novamente: ");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;
@@ -98,11 +98,11 @@ public class Menu {
 		int opcao;
 		Leitura ler = new Leitura();
 		System.out.println(" _________________________________________________________________");
-		System.out.println("|_____________________________Relatorio___________________________|");
+		System.out.println("|_____________________________Relatório___________________________|");
 		System.out.println("|                                                                 |");
 		System.out.println("|1- Saldo                                                         |");
 		System.out.println("|2- Relatório de tributação da conta corrente                     |");
-		System.out.println("|3- Relatório de Rendimento da poupança                           |");
+		System.out.println("|3- Relatório de rendimento da poupança                           |");
 		System.out.println("|4- Relatório com as informações dos clientes (Nome CPF Agência)  |");
 		System.out.println("|5- Relatório com o valor de capital do banco                     |");
 		System.out.println("|6- Relatório do número de contas em uma Agência                  |");
@@ -110,7 +110,7 @@ public class Menu {
 		System.out.println("|_________________________________________________________________|");
 		opcao = ler.lerInteiro();
 		while(opcao < 0 || opcao > 6) {
-			System.out.println("Opção invalida. Escolha uma opção novamente");
+			System.out.println("Opção inválida. Escolha uma opção novamente: ");
 			opcao = ler.lerInteiro();
 		}
 		return opcao;
@@ -152,14 +152,14 @@ public class Menu {
 								((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 							}
 							else
-							{	System.out.println("A conta não é do tipo Conta Corrente");
+							{	System.out.println("A conta não é do tipo Conta Corrente!");
 							}
 							break;
 					case 3: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
 								((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 							}
 							else
-							{	System.out.println("A conta não é do tipo Conta Poupança");
+							{	System.out.println("A conta não é do tipo Conta Poupança!");
 							}
 							break;
 					case 0:
@@ -170,7 +170,7 @@ public class Menu {
 				break;
 			case 4:continuar = false;
 					break;
-			default: System.out.println("Opção inválida");
+			default: System.out.println("Opção inválida!");
 			 		break;
 			}
 		}
@@ -212,7 +212,7 @@ public class Menu {
 										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
-										System.out.println("A conta não é do tipo Conta Corrente");
+										System.out.println("A conta não é do tipo Conta Corrente!");
 									}
 									break;
 					
@@ -220,7 +220,7 @@ public class Menu {
 										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
-										System.out.println("A conta não é do tipo Conta Poupança");
+										System.out.println("A conta não é do tipo Conta Poupança!");
 									}
 									break;
 							case 4: ((Gerente)usuario).relatorioNumeroContas();
@@ -231,7 +231,7 @@ public class Menu {
 						break;
 				case 3: continuar = false;
 						break;
-				default:System.out.println("Opção inválida.");
+				default:System.out.println("Opção inválida!");
 						break;
 			}	
 		}
@@ -273,7 +273,7 @@ public class Menu {
 										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
-										System.out.println("A conta não é do tipo Conta Corrente");
+										System.out.println("A conta não é do tipo Conta Corrente!");
 									}
 									break;
 					
@@ -281,7 +281,7 @@ public class Menu {
 										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
-										System.out.println("A conta não é do tipo Conta Poupança");
+										System.out.println("A conta não é do tipo Conta Poupança!");
 									}
 									break;
 							case 4: ((Diretor)usuario).relatorioDiretor();
@@ -295,7 +295,7 @@ public class Menu {
 						break;
 				case 3: continuar = false;
 						break;
-				default:System.out.println("Opção inválida.");
+				default:System.out.println("Opção inválida!");
 						break;
 			}	
 		}
@@ -336,7 +336,7 @@ public class Menu {
 										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
-										System.out.println("A conta não é do tipo Conta Corrente");
+										System.out.println("A conta não é do tipo Conta Corrente!");
 									}
 									break;
 					
@@ -344,7 +344,7 @@ public class Menu {
 										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
-										System.out.println("A conta não é do tipo Conta Poupança");
+										System.out.println("A conta não é do tipo Conta Poupança!");
 									}
 									break;
 							case 4: ((Presidente)usuario).relatorioPresidente();
@@ -359,7 +359,7 @@ public class Menu {
 						break;
 				case 3: continuar = false;
 						break;
-				default:System.out.println("Opção inválida.");
+				default:System.out.println("Opção inválida!");
 						break;
 			}	
 		}

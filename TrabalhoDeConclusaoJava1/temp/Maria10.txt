@@ -39,3 +39,21 @@ Conta Destinatária: 1
 Valor Transferido: R$1000.0
 **********Fim da Transferencia**********
 
+**********Saque**********
+Agência: 400
+Conta: 10
+Saque: R$300.0
+**********Fim do Saque**********
+
+**********Saque**********
+Agência: 400
+Conta: 10
+Saque: R$200.0
+**********Fim do Saque**********
+
+**********Saque**********
+Agência: 400
+Conta: 10
+Saque: R$300.0
+**********Fim do Saque**********
+

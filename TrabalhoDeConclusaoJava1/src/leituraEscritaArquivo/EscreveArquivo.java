@@ -15,10 +15,10 @@ public class EscreveArquivo {
 		public static void registraDeposito(Conta contaUsuario,Usuario usuario, double valorDeposito) throws IOException {
 			
 			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt",true));
-			String linha = "**********Deposito**********";
+			String linha = "**********Depósito**********";
 			buffWrite.append(linha + "\n");
 			
-			linha = "Agencia: "+contaUsuario.getAgencia();
+			linha = "Agência: "+contaUsuario.getAgencia();
 			buffWrite.append(linha + "\n");
 			
 			linha = "Conta: "+usuario.getNumConta();
@@ -27,7 +27,7 @@ public class EscreveArquivo {
 			linha = "Depósito: R$"+valorDeposito;
 			buffWrite.append(linha + "\n");
 			
-			linha = "**********Fim do Deposito**********";
+			linha = "**********Fim do Depósito**********";
 			buffWrite.append(linha + "\n\n");
 			
 			buffWrite.close();
@@ -42,7 +42,7 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 			String linha = "**********Saque**********";
 			buffWrite.append(linha + "\n");
 			
-			linha = "Agencia: "+contaUsuario.getAgencia();
+			linha = "Agência: "+contaUsuario.getAgencia();
 			buffWrite.append(linha + "\n");
 			
 			linha = "Conta: "+usuario.getNumConta();
@@ -57,7 +57,7 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 			buffWrite.close();
 			}
 			catch(IOException e) {
-				System.out.println("Erro de escrita");
+				System.out.println("Erro de escrita!");
 			}
 		}
 
@@ -67,10 +67,10 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt",true));
 		//PrintWriter out = new PrintWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt", true));
 	
-		String linha = "**********Transferencia**********";
+		String linha = "**********Transferência**********";
 		buffWrite.append(linha + "\n");
 		
-		linha = "Agencia: "+contaUsuario.getAgencia();
+		linha = "Agência: "+contaUsuario.getAgencia();
 		buffWrite.append(linha + "\n");
 		
 		linha = "Conta Remetente: "+usuario.getNumConta();
@@ -82,20 +82,20 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 		linha = "Valor Transferido: R$"+valorTransferencia;
 		buffWrite.append(linha + "\n");
 		
-		linha = "**********Fim da Transferencia**********";
+		linha = "**********Fim da Transferência**********";
 		buffWrite.append(linha + "\n\n");
 	
 		buffWrite.close();
 		}
 		catch(IOException e) {
-			System.out.println("Erro de escrita");
+			System.out.println("Erro de escrita! ");
 		}
 	}	
 	
 	public static void registraSimulacaoRendimento(double valor, int dias, Usuario usuario,double Resultado ) throws IOException {
 		
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/SimulacaoRendimento"+usuario.getNome()+usuario.getNumConta()+".txt",true));
-		String linha = "SIMULAÇAO DE RENDIMENTO";
+		String linha = "SIMULAÇÃO DE RENDIMENTO";
 		buffWrite.append(linha + "\n");
 		
 		linha = "Número da Conta: "+ usuario.getNumConta();
@@ -130,10 +130,10 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 			linha ="Valor tributado dos depósiros (R$ 0,10 por depósito): R$" + conta.getNumeroDeDepositos() * 0.1;
 			buffWrite.append(linha + "\n");
 			
-			linha ="Valor tributado das tranferencias (R$ 0,20 por transferencia): R$" + conta.getNumerodeTransferencias() * 0.2;
+			linha ="Valor tributado das tranferências (R$ 0,20 por transferência): R$" + conta.getNumerodeTransferencias() * 0.2;
 			buffWrite.append(linha + "\n");
 			
-			linha ="Valor assegurado no Seguro de vida R$" + usuario.getValorSegVida();
+			linha ="Valor assegurado no Seguro de vida: R$" + usuario.getValorSegVida();
 			buffWrite.append(linha + "\n");
 			
 			linha ="Valor tributado do seguro (20 por cento do valor assegurado): R$" + usuario.getValorSegVida() * 0.2;
@@ -158,7 +158,7 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 			linha ="Valor tributado dos depósiros (R$ 0,10 por depósito): R$" + conta.getNumeroDeDepositos() * 0.1;
 			buffWrite.append(linha + "\n");
 			
-			linha ="Valor tributado das tranferencias (R$ 0,20 por transferencia): R$" + conta.getNumerodeTransferencias() * 0.2;
+			linha ="Valor tributado das tranferências (R$ 0,20 por transferência): R$" + conta.getNumerodeTransferencias() * 0.2;
 			buffWrite.append(linha + "\n");
 			
 			linha ="TOTAL TRIBUTADO: R$" +(conta.getNumeroDeSaques() * 0.1+ conta.getNumeroDeDepositos() * 0.1 + conta.getNumerodeTransferencias() * 0.2);

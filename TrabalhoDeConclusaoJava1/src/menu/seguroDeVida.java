@@ -26,9 +26,9 @@ public class seguroDeVida {
 		
 			do {
 			
-			System.out.println("Deseja contratar o Seguro de vida?");
-			System.out.println("1 - Sim");
-			System.out.println("2 - Nao");
+			System.out.println("Deseja contratar o seguro de vida?");
+			System.out.println("1- Sim");
+			System.out.println("2- Não");
 			esc = sc.nextInt();
 			
 			switch (esc) {
@@ -38,7 +38,7 @@ public class seguroDeVida {
 					
 				
 					
-					System.out.println("Informe o valor que sera segurado: R$");
+					System.out.println("Informe o valor que será segurado: R$");
 					valorSeg = sc.nextDouble();
 					
 					tributoSeg = valorSeg * 0.2;
@@ -47,7 +47,7 @@ public class seguroDeVida {
 							contaUsuario.saque(valorSeg - tributoSeg  - 0.10);
 							usuario.setValorSegVida(valorSeg);
 							
-							System.out.println("Serviço Contratado");
+							System.out.println("Serviço Contratado!");
 							usuario.setSeguroVida("Contratado");	
 						}
 						catch(ContaException e){
@@ -63,7 +63,7 @@ public class seguroDeVida {
 					break;
 					
 				default:
-					System.out.println("Escolha inválida");
+					System.out.println("Escolha inválida!");
 					break;
 			}
 			

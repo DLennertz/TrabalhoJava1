@@ -25,21 +25,21 @@ public class SistemaInterno {
 		//Log in
 		System.out.println(" ____________________________");
 		System.out.println("|                            |");
-		System.out.print("|Digite seu CPF :");
+		System.out.print("|Digite seu CPF : ");
 		cpf= sc.next();
 		
 		usuario = BancoDados.mapUsuario.get(cpf);
 		
 		while(usuario==null) {
-			System.out.println("CPF não encontrado. Insira novo CPF");
+			System.out.println("CPF não encontrado. Insira novo CPF: ");
 			cpf= sc.next();
 			usuario = BancoDados.mapUsuario.get(cpf);
 		}
-		System.out.print("|Digite sua senha:");
+		System.out.print("|Digite sua senha: ");
 		senha= sc.next();
 
 		while(!usuario.getSenhaUsuario().equals(senha)) {
-			System.out.println("Senha Incorreta. Insira nova senha");
+			System.out.println("Senha Incorreta. Insira nova senha: ");
 			senha= sc.next();
 		}
 		System.out.println("|____________________________|\n");
@@ -59,7 +59,7 @@ public class SistemaInterno {
 								break;
 			case "Presidente":  menu.menuPresidente(contaUsuario,usuario);
 								break;
-			default: 		System.out.println("Erro");
+			default: 		System.out.println("Erro!");
 							break;
 			}
 		}
@@ -76,12 +76,12 @@ public class SistemaInterno {
 								break;
 			case "Presidente":  menu.menuPresidente(contaUsuario,usuario);
 								break;				
-			default: 		System.out.println("Erro");
+			default: 		System.out.println("Erro!");
 							break;
 			}
 		}
 		else {
-			System.out.println("Erro tipo de conta inválida");
+			System.out.println("Erro tipo de conta inválida!");
 		}
 		
 		sc.close();

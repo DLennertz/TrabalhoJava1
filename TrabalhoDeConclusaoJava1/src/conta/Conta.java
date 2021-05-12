@@ -119,10 +119,10 @@ public abstract class Conta {
 					return true;
 				}
 				else if(valor <= 0){	
-					throw new ContaException("Valor do saque menor ou igual a zero");
+					throw new ContaException("Valor do saque menor ou igual a zero.");
 				}
 				else {
-					throw new ContaException("Saldo Insuficiente");
+					throw new ContaException("Saldo Insuficiente!");
 				}
 			
 		}
@@ -134,11 +134,11 @@ public abstract class Conta {
 			return true;
 			}
 			else if(valor <= 0) {
-				System.out.println("Erro. Transferência com valor 0 ou negativo");
+				System.out.println("Erro. Transferência com valor 0 ou negativo.");
 			return false;
 			}
 			else{
-				System.out.println("Saldo insuficiente para realizar a transferência");
+				System.out.println("Saldo insuficiente para realizar a transferência.");
 			return false;
 			}
 		}
@@ -146,11 +146,11 @@ public abstract class Conta {
 		public void processoSaque(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 			double valorSaque;
 			
-			System.out.println("Insira o valor do saque:");
+			System.out.println("Insira o valor do saque: ");
 			valorSaque = ler.lerDouble();
 			
 			if(this.saldo == 0) {
-				System.out.println("Erro. Saldo igual a 0, impossivel realizar saque");
+				System.out.println("Erro. Saldo igual a 0, impossível realizar o saque!");
 				
 				}
 			else {
@@ -170,10 +170,10 @@ public abstract class Conta {
 		public void processoDeposito(Conta contaUsuario, Usuario usuario) throws IOException {
 			double valorDeposito;
 		
-			System.out.println("Insira o valor do depósito:");
+			System.out.println("Insira o valor do depósito: ");
 			valorDeposito = ler.lerDouble();
 			while(!this.deposita(valorDeposito)) {
-				System.out.println("Erro ao realizar depósito. Insira novo valor");
+				System.out.println("Erro ao realizar depósito. Insira novo valor: ");
 				valorDeposito = ler.lerDouble();
 			}
 			EscreveArquivo.registraDeposito(contaUsuario, usuario,valorDeposito);
@@ -191,10 +191,10 @@ public abstract class Conta {
 			while(contaDestino == null || contaUsuario.getNumConta() == contaDestino.getNumConta()) {
 				
 				if (contaDestino == null) {
-					System.out.println("\nConta não encontrada \n");
+					System.out.println("\nConta não encontrada! \n");
 				}
 				else if(contaUsuario.getNumConta() == contaDestino.getNumConta()) {
-					System.out.println("\nImpossivel transferir para sua propria conta\n");
+					System.out.println("\nImpossível transferir para sua própria conta.\n");
 				}
 				
 				System.out.print("Insira novamente o número da conta: ");
@@ -226,7 +226,7 @@ public abstract class Conta {
 			System.out.println("########################");
 			System.out.println("Data : "+ hojeformatado);
 			System.out.println("Conta : "+ getNumConta());
-			System.out.println("Agencia: " + getAgencia());
+			System.out.println("Agência: " + getAgencia());
 			System.out.printf("Saldo : R$%.2f", getSaldo());
 			System.out.println("\n########################\n");
 		}

@@ -156,14 +156,15 @@ public abstract class Conta {
 			else {
 				try {
 				this.saque(valorSaque);
+				EscreveArquivo.registraSaque(contaUsuario, usuario,valorSaque);
+				this.incrementaNumeroDeSaques();
 				}
 				catch(ContaException e){	
 					System.out.println(e);
 				}
 				
 			}
-			EscreveArquivo.registraSaque(contaUsuario, usuario,valorSaque);
-			this.incrementaNumeroDeSaques();
+			
 		}
 		
 		public void processoDeposito(Conta contaUsuario, Usuario usuario) throws IOException {

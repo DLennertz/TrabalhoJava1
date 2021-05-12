@@ -23,15 +23,15 @@ public class SistemaInterno {
 	
 		LeArquivo.leArquivoUsuario();
 		//Log in
-		System.out.println(" ____________________________");
-		System.out.println("|                            |");
+		System.out.println(" ___________________________________________");
+		System.out.println("|                                           |");
 		System.out.print("|Digite seu CPF : ");
 		cpf= sc.next();
 		
 		usuario = BancoDados.mapUsuario.get(cpf);
 		
 		while(usuario==null) {
-			System.out.println("CPF não encontrado. Insira novo CPF: ");
+			System.out.print("|CPF não encontrado. Insira novo CPF: ");
 			cpf= sc.next();
 			usuario = BancoDados.mapUsuario.get(cpf);
 		}
@@ -39,10 +39,10 @@ public class SistemaInterno {
 		senha= sc.next();
 
 		while(!usuario.getSenhaUsuario().equals(senha)) {
-			System.out.println("Senha Incorreta. Insira nova senha: ");
+			System.out.print("|Senha Incorreta. Insira nova senha: ");
 			senha= sc.next();
 		}
-		System.out.println("|____________________________|\n");
+		System.out.println("|___________________________________________|\n");
 		
 		LeArquivo.leArquivoDevolveListaContas();
 		

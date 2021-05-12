@@ -1,0 +1,62 @@
+###### RELATÓRIO DOS USUÁRIOS NA DATA 12/05/2021 #####
+
+NOME: Alan Martins
+CPF: 976 
+AGÊNCIA: 200
+###############
+NOME: Alice Matta
+CPF: 45 
+AGÊNCIA: 200
+###############
+NOME: Bianca Silva
+CPF: 333 
+AGÊNCIA: 310
+###############
+NOME: Cintia Souza
+CPF: 9465 
+AGÊNCIA: 500
+###############
+NOME: Eli Pereira
+CPF: 92 
+AGÊNCIA: 510
+###############
+NOME: Eli Pereira
+CPF: 9210 
+AGÊNCIA: 510
+###############
+NOME: Gustavo Almeida
+CPF: 265 
+AGÊNCIA: 400
+###############
+NOME: Joao Lacerda
+CPF: 112 
+AGÊNCIA: 200
+###############
+NOME: Joaquim Manuel
+CPF: 5 
+AGÊNCIA: 500
+###############
+NOME: Julia Souza
+CPF: 4 
+AGÊNCIA: 600
+###############
+NOME: Julia Souza
+CPF: 321 
+AGÊNCIA: 600
+###############
+NOME: Marcelo Andrade
+CPF: 5556 
+AGÊNCIA: 200
+###############
+NOME: Maria Silva
+CPF: 64 
+AGÊNCIA: 400
+###############
+NOME: Victoria Santana
+CPF: 23 
+AGÊNCIA: 100
+###############
+NOME: Zelda Abreu
+CPF: 94 
+AGÊNCIA: 310
+###############

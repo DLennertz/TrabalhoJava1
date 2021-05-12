@@ -1,97 +1,93 @@
-**********Saque**********
-Agencia: 400
-Conta: 10
-Saque: R$10.0
-**********Fim do Saque**********
-
-**********Transferencia**********
-Agencia: 400
-Conta Remetente: 10
-Conta Destinatária: 10
-Valor Transferido: R$30.0
-**********Fim da Transferencia**********
-
-**********Transferencia**********
-Agencia: 400
-Conta Remetente: 10
-Conta Destinatária: 10
-Valor Transferido: R$1.0
-**********Fim da Transferencia**********
-
-**********Transferencia**********
-Agencia: 400
-Conta Remetente: 10
-Conta Destinatária: 12
-Valor Transferido: R$10.0
-**********Fim da Transferencia**********
-
-**********Transferencia**********
-Agencia: 400
-Conta Remetente: 10
-Conta Destinatária: 12
-Valor Transferido: R$120.0
-**********Fim da Transferencia**********
-
-**********Transferencia**********
-Agencia: 400
-Conta Remetente: 10
-Conta Destinatária: 1
-Valor Transferido: R$1000.0
-**********Fim da Transferencia**********
-
-**********Saque**********
-Agência: 400
-Conta: 10
-Saque: R$300.0
-**********Fim do Saque**********
-
-**********Saque**********
-Agência: 400
-Conta: 10
-Saque: R$200.0
-**********Fim do Saque**********
-
-**********Saque**********
-Agência: 400
-Conta: 10
-Saque: R$300.0
-**********Fim do Saque**********
-
-**********Depósito**********
-Agência: 400
-Conta: 10
-Depósito: R$500,00
-**********Fim do Depósito**********
-
-**********Saque**********
+############### Saque ###############
 Agência: 400
 Conta: 10
 Saque: R$ 200,00
-**********Fim do Saque**********
+############### Fim do Saque ###############
 
-**********Depósito**********
+###############Depósito###############
 Agência: 400
 Conta: 10
 Depósito: R$ 100,00
-**********Fim do Depósito**********
+###############Fim do Depósito###############
 
-**********Transferência**********
+############### Transferência ###############
 Agência: 400
 Conta Remetente: 10
 Conta Destinatária: 1
-Valor Transferido: R$ 1000,00
-**********Fim da Transferência**********
+Valor Transferido: R$ 200,00
+############### Fim da Transferência ###############
 
-**********Transferência**********
+############### Saque ###############
+Agência: 400
+Conta: 10
+Saque: R$ 500,00
+############### Fim do Saque ###############
+
+###############Depósito###############
+Agência: 400
+Conta: 10
+Depósito: R$ 300,00
+###############Fim do Depósito###############
+
+############### Transferência ###############
 Agência: 400
 Conta Remetente: 10
 Conta Destinatária: 1
-Valor Transferido: R$ 100,00
-**********Fim da Transferência**********
+Valor Transferido: R$ 500,00
+############### Fim da Transferência ###############
 
-**********Depósito**********
+############### Saque ###############
+Agência: 400
+Conta: 10
+Saque: R$ 200,00
+############### Fim do Saque ###############
+
+###############Depósito###############
 Agência: 400
 Conta: 10
 Depósito: R$ 200,00
-**********Fim do Depósito**********
+###############Fim do Depósito###############
+
+############### Saque ###############
+Agência: 400
+Conta: 10
+Saque: R$ 300,00
+############### Fim do Saque ###############
+
+############### Transferência ###############
+Agência: 400
+Conta Remetente: 10
+Conta Destinatária: 1
+Valor Transferido: R$ 300,00
+############### Fim da Transferência ###############
+
+###############Depósito###############
+Agência: 400
+Conta: 10
+Depósito: R$ 100,00
+###############Fim do Depósito###############
+
+############### Saque ###############
+Agência: 400
+Conta: 10
+Saque: R$ 100,00
+############### Fim do Saque ###############
+
+###############Depósito###############
+Agência: 400
+Conta: 10
+Depósito: R$ 100,00
+###############Fim do Depósito###############
+
+############### Saque ###############
+Agência: 400
+Conta: 10
+Saque: R$ 100,00
+############### Fim do Saque ###############
+
+###############Depósito###############
+Agência: 400
+Conta: 10
+Depósito: R$ 200,00
+###############Fim do Depósito###############
 

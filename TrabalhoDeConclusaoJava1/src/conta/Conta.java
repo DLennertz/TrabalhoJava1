@@ -146,7 +146,7 @@ public abstract class Conta {
 		public void processoSaque(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 			double valorSaque;
 			
-			System.out.println("Insira o valor do saque: ");
+			System.out.print("Insira o valor do saque: R$ ");
 			valorSaque = ler.lerDouble();
 			
 			if(this.saldo == 0) {
@@ -157,6 +157,8 @@ public abstract class Conta {
 				try {
 				this.saque(valorSaque);
 				EscreveArquivo.registraSaque(contaUsuario, usuario,valorSaque);
+				System.out.printf("\nSaldo da conta: R$ %.2f", contaUsuario.getSaldo());
+				System.out.println("");
 				this.incrementaNumeroDeSaques();
 				}
 				catch(ContaException e){	
@@ -170,13 +172,15 @@ public abstract class Conta {
 		public void processoDeposito(Conta contaUsuario, Usuario usuario) throws IOException {
 			double valorDeposito;
 		
-			System.out.println("Insira o valor do depósito: ");
+			System.out.print("Insira o valor do depósito: R$ ");
 			valorDeposito = ler.lerDouble();
 			while(!this.deposita(valorDeposito)) {
 				System.out.println("Erro ao realizar depósito. Insira novo valor: ");
 				valorDeposito = ler.lerDouble();
 			}
 			EscreveArquivo.registraDeposito(contaUsuario, usuario,valorDeposito);
+			System.out.printf("\nSaldo da conta: R$ %.2f", contaUsuario.getSaldo());
+			System.out.println("");
 			this.incrementaNumeroDeDepositos();
 			
 		}
@@ -201,14 +205,12 @@ public abstract class Conta {
 				contaDestino = retornaConta();
 			}
 			
-			System.out.print("Insira o valor a ser transferido: ");
+			System.out.print("Insira o valor a ser transferido: R$ ");
 			valorTransferencia = ler.lerDouble();
 		
 			this.transfere(contaDestino, valorTransferencia);
 			EscreveArquivo.registraTransferencia(contaUsuario, contaDestino, usuario, valorTransferencia);
 			System.out.printf("\nSaldo do remetente: R$ %.2f", contaUsuario.getSaldo());
-			System.out.println("");
-			System.out.printf("Saldo do destinatário: R$ %.2f", contaDestino.getSaldo());
 			System.out.println("");
 			this.incrementaNumeroDeTransferencias();
 		}

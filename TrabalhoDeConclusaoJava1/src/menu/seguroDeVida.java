@@ -34,11 +34,8 @@ public class seguroDeVida {
 			switch (esc) {
 			
 				case 1:
-					
-					
-				
-					
-					System.out.println("Informe o valor que será segurado: R$");
+									
+					System.out.println("Informe o valor que será segurado: ");
 					valorSeg = sc.nextDouble();
 					
 					tributoSeg = valorSeg * 0.2;
@@ -54,9 +51,6 @@ public class seguroDeVida {
 							System.out.println(e);
 						}
 						
-					
-					
-					
 					break;
 			
 				case 2:

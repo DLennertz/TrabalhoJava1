@@ -18,7 +18,7 @@ public class EscreveArquivo {
 			DecimalFormat formatador = new DecimalFormat("0.00");
 			
 			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt",true));
-			String linha = "**********Depósito**********";
+			String linha = "###############Depósito###############";
 			buffWrite.append(linha + "\n");
 			
 			linha = "Agência: " + contaUsuario.getAgencia();
@@ -30,7 +30,7 @@ public class EscreveArquivo {
 			linha = "Depósito: R$ " + formatador.format(valorDeposito);
 			buffWrite.append(linha + "\n");
 			
-			linha = "**********Fim do Depósito**********";
+			linha = "###############Fim do Depósito###############";
 			buffWrite.append(linha + "\n\n");
 			
 			buffWrite.close();
@@ -41,10 +41,10 @@ public class EscreveArquivo {
 			DecimalFormat formatador = new DecimalFormat("0.00");
 			
 			try {
-			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt",true));
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/" + usuario.getNome() + usuario.getNumConta() + ".txt",true));
 			//PrintWriter out = new PrintWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt", true));
 		
-			String linha = "**********Saque**********";
+			String linha = "############### Saque ###############";
 			buffWrite.append(linha + "\n");
 			
 			linha = "Agência: " + contaUsuario.getAgencia();
@@ -56,7 +56,7 @@ public class EscreveArquivo {
 			linha = "Saque: R$ " + formatador.format(valorSaque);
 			buffWrite.append(linha + "\n");
 			
-			linha = "**********Fim do Saque**********";
+			linha = "############### Fim do Saque ###############";
 			buffWrite.append(linha + "\n\n");
 		
 			buffWrite.close();
@@ -71,10 +71,9 @@ public class EscreveArquivo {
 		DecimalFormat formatador = new DecimalFormat("0.00");
 		
 		try {
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt",true));
-		//PrintWriter out = new PrintWriter(new FileWriter("./temp/"+usuario.getNome()+usuario.getNumConta()+".txt", true));
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/" + usuario.getNome() + usuario.getNumConta() + ".txt",true));
 	
-		String linha = "**********Transferência**********";
+		String linha = "############### Transferência ###############";
 		buffWrite.append(linha + "\n");
 		
 		linha = "Agência: " + contaUsuario.getAgencia();
@@ -89,7 +88,7 @@ public class EscreveArquivo {
 		linha = "Valor Transferido: R$ " + formatador.format(valorTransferencia);
 		buffWrite.append(linha + "\n");
 		
-		linha = "**********Fim da Transferência**********";
+		linha = "############### Fim da Transferência ###############";
 		buffWrite.append(linha + "\n\n");
 	
 		buffWrite.close();
@@ -103,8 +102,8 @@ public class EscreveArquivo {
 		
 		DecimalFormat formatador = new DecimalFormat("0.00");
 		
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/SimulacaoRendimento"+usuario.getNome()+usuario.getNumConta()+".txt",true));
-		String linha = "SIMULAÇÃO DE RENDIMENTO";
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/SimulacaoRendimento" + usuario.getNome() + usuario.getNumConta() + ".txt",true));
+		String linha = "############### SIMULAÇÃO DE RENDIMENTO ###############";
 		buffWrite.append(linha + "\n");
 		
 		linha = "Número da Conta: " + usuario.getNumConta();
@@ -119,7 +118,7 @@ public class EscreveArquivo {
 		linha = "Valor Resultante da Simulação: R$ " + formatador.format(Resultado);
 		buffWrite.append(linha + "\n");
 		
-		linha = "**********Fim da Simulação**********";
+		linha = "############### Fim da Simulação ###############";
 		buffWrite.append(linha + "\n\n");
 		
 		buffWrite.close();
@@ -131,8 +130,8 @@ public class EscreveArquivo {
 		
 		if (usuario.getSeguroVida() == "Contratado") {
 			String linha;
-			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao"+conta.getNumConta()+".txt",true));
-			linha ="##############RELATÓRIO TRIBUTAÇÃO###############";
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao" + conta.getNumConta() + ".txt",true));
+			linha ="############### RELATÓRIO TRIBUTAÇÃO ###############";
 			buffWrite.append(linha + "\n");
 			
 			linha ="Valor tributado dos saques (R$ 0,10 por saque): R$ " + formatador.format(conta.getNumeroDeSaques() * 0.1);
@@ -159,8 +158,8 @@ public class EscreveArquivo {
 		
 		else {
 			String linha;
-			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao"+conta.getNumConta()+".txt",true));
-			linha ="##############RELATÓRIO TRIBUTAÇÃO###############";
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioTributacao" + conta.getNumConta() + ".txt",true));
+			linha ="############### RELATÓRIO TRIBUTAÇÃO ###############";
 			buffWrite.append(linha + "\n");
 			
 			linha ="Valor tributado dos saques (R$ 0,10 por saque): R$ " + formatador.format(conta.getNumeroDeSaques() * 0.1);
@@ -186,10 +185,10 @@ public class EscreveArquivo {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_HH_mm");
 		Date date = new Date();
 		
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioNumeroContas" + agencia + sdf.format(date) + ".txt"));
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/RelatorioNumeroContasAgencia" + agencia + "Dia" + sdf.format(date) + ".txt"));
 		sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-		linha ="##############RELATÓRIO DE CONTAS GERENCIADAS###############";		
+		linha ="############### RELATÓRIO DE CONTAS GERENCIADAS ###############";		
 		buffWrite.append(linha + "\n");
 		
 		linha = "Contas pertencentes à agência " + agencia + " em " + date + ": \n";
@@ -212,7 +211,7 @@ public class EscreveArquivo {
 		
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter("./temp/Relatoricapitaltotal" + sdf.format(date) + ".txt"));
 		sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-		linha = " ########Capital Total######## ";
+		linha = "############### Capital Total ###############";
 		buffWrite.append(linha + "\n");
 		linha= "Data e hora da consulta: " + sdf.format(date);
 		buffWrite.append(linha + "\n");
@@ -232,7 +231,7 @@ public class EscreveArquivo {
 		
 		sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-		linha = "Relatório dos usuários na data: " + sdf.format(date) + "\n";
+		linha = "###### RELATÓRIO DOS USUÁRIOS NA DATA " + sdf.format(date) + " #####\n";
 		buffWrite.append(linha + "\n");
 		
 		for(Usuario c : lista) {

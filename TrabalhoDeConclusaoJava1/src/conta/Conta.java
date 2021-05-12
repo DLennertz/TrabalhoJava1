@@ -184,16 +184,24 @@ public abstract class Conta {
 		public void processoTransferencia(Conta contaUsuario, Usuario usuario) throws IOException, ContaException {
 			
 			double valorTransferencia;
-			System.out.println("Insira o número da conta de destino: ");
+			System.out.print("\nInsira o número da conta de destino: ");
 			
 			Conta contaDestino = retornaConta();
 	
-			while(contaDestino == null) {
-				System.out.println("Conta não encontrada. Insira novamente o número da conta");
+			while(contaDestino == null || contaUsuario.getNumConta() == contaDestino.getNumConta()) {
+				
+				if (contaDestino == null) {
+					System.out.println("\nConta não encontrada \n");
+				}
+				else if(contaUsuario.getNumConta() == contaDestino.getNumConta()) {
+					System.out.println("\nImpossivel transferir para sua propria conta\n");
+				}
+				
+				System.out.print("Insira novamente o número da conta: ");
 				contaDestino = retornaConta();
 			}
 			
-			System.out.println("Insira o valor a ser transferido: ");
+			System.out.print("Insira o valor a ser transferido: ");
 			valorTransferencia = ler.lerDouble();
 		
 			this.transfere(contaDestino, valorTransferencia);

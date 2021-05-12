@@ -36,7 +36,9 @@ public class ContaCorrente extends Conta{
 				System.out.println();
 				System.out.printf("Valor assegurado no Seguro de vida R$%.2f" , usuario.getValorSegVida() );
 				System.out.println();
-				System.out.printf("TOTAL TRIBUTADO: R$%.2f" ,(this.numeroDeSaques * 0.1+ this.numeroDeDepositos * 0.1 + this.numeroDeTransferencias * 0.2 + usuario.getValorSegVida()*0.2) );
+				System.out.printf("Valor tributado do seguro (20 por cento do valor assegurado): R$%.2f", usuario.getValorSegVida() * 0.2 );
+				System.out.println();
+				System.out.printf("TOTAL TRIBUTADO: R$%.2f" ,(this.numeroDeSaques * 0.1+ this.numeroDeDepositos * 0.1 + this.numeroDeTransferencias * 0.2 + usuario.getValorSegVida() * 0.2) );
 				System.out.println();
 				
 			}

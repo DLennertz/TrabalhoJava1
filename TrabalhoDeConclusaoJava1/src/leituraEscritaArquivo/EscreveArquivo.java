@@ -136,7 +136,10 @@ public static void registraSaque(Conta contaUsuario,Usuario usuario, double valo
 			linha ="Valor assegurado no Seguro de vida R$" + usuario.getValorSegVida();
 			buffWrite.append(linha + "\n");
 			
-			linha ="TOTAL TRIBUTADO: R$" +(conta.getNumeroDeSaques() * 0.1+ conta.getNumeroDeDepositos() * 0.1 + conta.getNumerodeTransferencias() * 0.2 + usuario.getValorSegVida());
+			linha ="Valor tributado do seguro (20 por cento do valor assegurado): R$" + usuario.getValorSegVida() * 0.2;
+			buffWrite.append(linha + "\n");
+			
+			linha ="TOTAL TRIBUTADO: R$" +(conta.getNumeroDeSaques() * 0.1+ conta.getNumeroDeDepositos() * 0.1 + conta.getNumerodeTransferencias() * 0.2 + usuario.getValorSegVida() * 0.2);
 			buffWrite.append(linha + "\n");
 			
 			buffWrite.close();

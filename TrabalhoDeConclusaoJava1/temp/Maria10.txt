@@ -57,3 +57,41 @@ Conta: 10
 Saque: R$300.0
 **********Fim do Saque**********
 
+**********Depósito**********
+Agência: 400
+Conta: 10
+Depósito: R$500,00
+**********Fim do Depósito**********
+
+**********Saque**********
+Agência: 400
+Conta: 10
+Saque: R$ 200,00
+**********Fim do Saque**********
+
+**********Depósito**********
+Agência: 400
+Conta: 10
+Depósito: R$ 100,00
+**********Fim do Depósito**********
+
+**********Transferência**********
+Agência: 400
+Conta Remetente: 10
+Conta Destinatária: 1
+Valor Transferido: R$ 1000,00
+**********Fim da Transferência**********
+
+**********Transferência**********
+Agência: 400
+Conta Remetente: 10
+Conta Destinatária: 1
+Valor Transferido: R$ 100,00
+**********Fim da Transferência**********
+
+**********Depósito**********
+Agência: 400
+Conta: 10
+Depósito: R$ 200,00
+**********Fim do Depósito**********
+

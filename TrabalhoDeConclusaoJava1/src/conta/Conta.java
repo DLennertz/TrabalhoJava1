@@ -206,9 +206,9 @@ public abstract class Conta {
 		
 			this.transfere(contaDestino, valorTransferencia);
 			EscreveArquivo.registraTransferencia(contaUsuario, contaDestino, usuario, valorTransferencia);
-			System.out.printf("Saldo do remetente :R$%.2f", contaUsuario.getSaldo());
+			System.out.printf("\nSaldo do remetente: R$ %.2f", contaUsuario.getSaldo());
 			System.out.println("");
-			System.out.printf("Saldo do destinatário :R$%.2f", contaDestino.getSaldo());
+			System.out.printf("Saldo do destinatário: R$ %.2f", contaDestino.getSaldo());
 			System.out.println("");
 			this.incrementaNumeroDeTransferencias();
 		}

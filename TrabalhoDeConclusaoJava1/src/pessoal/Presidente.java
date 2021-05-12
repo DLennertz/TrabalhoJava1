@@ -1,6 +1,7 @@
 package pessoal;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -33,6 +34,7 @@ public class Presidente extends Cliente implements Funcionario{
 	}
 	
 	public void relatorioCapitalPresidente() throws IOException {
+		DecimalFormat formatador = new DecimalFormat("0.00");
 		ArrayList<Conta> lista = new ArrayList<Conta>();
 		double total = 0;
 		lista = LeArquivo.listaContas();
@@ -40,7 +42,7 @@ public class Presidente extends Cliente implements Funcionario{
 		for(Conta c : lista) {
 			total+=c.getSaldo();
 		}
-		System.out.println("TOTAL : " + total);
+		System.out.println("TOTAL : R$ " + formatador.format(total));
 		
 		EscreveArquivo.registroCapitalTotal(total);
 	}

@@ -1,5 +1,0 @@
-############### RELATÓRIO TRIBUTAÇÃO ###############
-Valor tributado dos saques (R$ 0,10 por saque): R$ 0,00
-Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,00
-Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,00
-TOTAL TRIBUTADO: R$ 0,00

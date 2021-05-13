@@ -3,6 +3,7 @@ package pessoal;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -35,9 +36,9 @@ public class Presidente extends Cliente implements Funcionario{
 	
 	public void relatorioCapitalPresidente() throws IOException {
 		DecimalFormat formatador = new DecimalFormat("0.00");
-		ArrayList<Conta> lista = new ArrayList<Conta>();
+		Collection<Conta> lista = new ArrayList<Conta>();
 		double total = 0;
-		lista = LeArquivo.listaContas();
+		lista = BancoDados.mapContas.values();
 		System.out.println("CAPITAL TOTAL");
 		for(Conta c : lista) {
 			total+=c.getSaldo();

@@ -19,10 +19,13 @@ public class SistemaInterno {
 		Menu menu = new Menu();
 		String senha, cpf;
 		Usuario usuario = new Usuario();
+		boolean continuar= true;
+		int opcao;
 		
-	
+		LeArquivo.leArquivoDevolveListaContas();
 		LeArquivo.leArquivoUsuario();
 		//Log in
+		while(continuar) {
 		System.out.println(" ___________________________________________");
 		System.out.println("|                                           |");
 		System.out.print("|Digite seu CPF : ");
@@ -44,7 +47,7 @@ public class SistemaInterno {
 		}
 		System.out.println("|___________________________________________|\n");
 		
-		LeArquivo.leArquivoDevolveListaContas();
+		
 		
 		if((BancoDados.mapContas.get(usuario.getNumConta()).getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())){
 			ContaCorrente contaUsuario = new ContaCorrente();
@@ -83,8 +86,23 @@ public class SistemaInterno {
 		else {
 			System.out.println("Erro tipo de conta inválida!");
 		}
+		System.out.println(" ___________________________");
+		System.out.println("|Deseja realizar novo log-in?|");
+		System.out.println("|1- Sim                      |");
+		System.out.println("|2- Não                      |");
+		System.out.println("|___________________________ |\n");
+		opcao= sc.nextInt();
 		
-		sc.close();
+		while(opcao>2 || opcao<1) {
+			System.out.println("Erro. Opção inválida. Reinsira a opção");
+			opcao = sc.nextInt();
+		}
+			
+		if(opcao==2) {
+			continuar=false;
+		}
+		
+		}
 		}
 	}	
 

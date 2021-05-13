@@ -100,10 +100,6 @@ public abstract class Conta {
 			return this.saldo;
 		}
 		
-		public void setSaldo(double saldo) {
-			this.saldo=saldo;
-		}
-		
 		public void setAgencia(int agencia) {
 			this.agencia = agencia;
 		}

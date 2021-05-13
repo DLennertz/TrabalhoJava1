@@ -191,7 +191,7 @@ public class EscreveArquivo {
 		linha ="############### RELATÓRIO DE CONTAS GERENCIADAS ###############";		
 		buffWrite.append(linha + "\n");
 		
-		linha = "Contas pertencentes à agência " + agencia + " em " + date + ": \n";
+		linha = "Contas pertencentes à agência " + agencia + " em " + sdf.format(date) + ": \n";
 		buffWrite.append(linha);
 		
 		for(Conta c : lista) {
@@ -204,6 +204,7 @@ public class EscreveArquivo {
 	}
 	
 	public static void registroCapitalTotal(double total) throws IOException {
+		System.out.println("ENTROU");
 		String linha;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_HH_mm");
 		Date date = new Date();

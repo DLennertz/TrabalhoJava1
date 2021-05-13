@@ -1,12 +1,24 @@
 ############### RELATÓRIO TRIBUTAÇÃO ###############
-Valor tributado dos saques (R$ 0,10 por saque): R$ 0,10
-Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,10
-Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,20
-TOTAL TRIBUTADO: R$ 0,40
+Valor tributado dos saques (R$ 0,10 por saque): R$ 0,00
+Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,00
+Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,00
+TOTAL TRIBUTADO: R$ 0,00
+############### RELATÓRIO TRIBUTAÇÃO ###############
+Valor tributado dos saques (R$ 0,10 por saque): R$ 0,00
+Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,00
+Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,00
+TOTAL TRIBUTADO: R$ 0,00
+############### RELATÓRIO TRIBUTAÇÃO ###############
+Valor tributado dos saques (R$ 0,10 por saque): R$ 0,00
+Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,00
+Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,00
+Valor assegurado no Seguro de vida: R$ 500,00
+Valor tributado do seguro (20 por cento do valor assegurado): R$ 100,00
+TOTAL TRIBUTADO: R$ 100,00
 ############### RELATÓRIO TRIBUTAÇÃO ###############
 Valor tributado dos saques (R$ 0,10 por saque): R$ 0,10
-Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,10
-Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,20
-Valor assegurado no Seguro de vida: R$ 1000,00
-Valor tributado do seguro (20 por cento do valor assegurado): R$ 200,00
-TOTAL TRIBUTADO: R$ 200,40
+Valor tributado dos depósiros (R$ 0,10 por depósito): R$ 0,00
+Valor tributado das tranferências (R$ 0,20 por transferência): R$ 0,00
+Valor assegurado no Seguro de vida: R$ 500,00
+Valor tributado do seguro (20 por cento do valor assegurado): R$ 100,00
+TOTAL TRIBUTADO: R$ 100,10

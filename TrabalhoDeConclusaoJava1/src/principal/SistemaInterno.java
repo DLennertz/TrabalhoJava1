@@ -87,7 +87,7 @@ public class SistemaInterno {
 			System.out.println("Erro tipo de conta inválida!");
 		}
 		System.out.println(" ___________________________");
-		System.out.println("|Deseja realizar novo log-in?|");
+		System.out.println("|Deseja realizar novo login? |");
 		System.out.println("|1- Sim                      |");
 		System.out.println("|2- Não                      |");
 		System.out.println("|___________________________ |\n");

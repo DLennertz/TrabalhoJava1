@@ -208,7 +208,7 @@ public class Menu {
 				case 2: switch (menuRelatorioGerente()) {
 							case 1: contaUsuario.imprimirSaldo();
 									break;
-							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
+							case 2: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
 										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
@@ -216,7 +216,7 @@ public class Menu {
 									}
 									break;
 					
-							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
+							case 3: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
 										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
@@ -269,7 +269,7 @@ public class Menu {
 				case 2: switch (menuRelatorioDiretor()) {
 							case 1: contaUsuario.imprimirSaldo();
 									break;
-							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
+							case 2: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
 										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
@@ -277,7 +277,7 @@ public class Menu {
 									}
 									break;
 					
-							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
+							case 3: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
 										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
@@ -332,7 +332,7 @@ public class Menu {
 				case 2: switch (menuRelatorioPresidente()) {
 							case 1: contaUsuario.imprimirSaldo();
 									break;
-							case 2: if(contaUsuario.getTipoConta()==ContaTipoEnum.CORRENTE.getTipo()) {
+							case 2: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.CORRENTE.getTipo())) {
 										((ContaCorrente)contaUsuario).relatorioTributacao(usuario);
 									}
 									else{	
@@ -340,7 +340,7 @@ public class Menu {
 									}
 									break;
 					
-							case 3: if(contaUsuario.getTipoConta()==ContaTipoEnum.POUPANCA.getTipo()) {
+							case 3: if((contaUsuario.getTipoConta()).equalsIgnoreCase(ContaTipoEnum.POUPANCA.getTipo())) {
 										((ContaPoupanca)contaUsuario).processoSimulacaoRendimento(usuario);
 									}
 									else{	
